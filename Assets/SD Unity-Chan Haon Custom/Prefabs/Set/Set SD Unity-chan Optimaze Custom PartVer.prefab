@@ -11,7 +11,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 7b23fb4f885f479458043c402441a1a7, type: 2}
+      objectReference: {fileID: 9100000, guid: 6d29cc8926ef3924ea29b3bad0d48c3c, type: 2}
     - target: {fileID: -6057140222963153312, guid: 9d7f28721c2867142bc592c0f32f038f,
         type: 3}
       propertyPath: m_WarningMessage
@@ -113,7 +113,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 9d7f28721c2867142bc592c0f32f038f,
         type: 3}
       propertyPath: m_Name
-      value: Set SD Unity-chan Optimaze Custom
+      value: Set SD Unity-chan Optimaze Custom PartVer
       objectReference: {fileID: 0}
     - target: {fileID: 4327325658491992504, guid: 9d7f28721c2867142bc592c0f32f038f,
         type: 3}
