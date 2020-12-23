@@ -17,7 +17,7 @@ public class Trace{
     private int LifeRest;
     private int ScoreActuelle;
     private int ScoreTotal;
-    private int ScoreLeft;
+    private int ScoreGauche;
 
     // Initialization of class Trace
     public Trace(int nbIT, int nbIMG, int nbIMD, int nbIOMG, int nbIOMD, int nbG, string nS, int tT, int lL,int lR, int sA, int sT, int sG)
@@ -28,7 +28,7 @@ public class Trace{
         NbInsMG = nbIMG;
         NbInsMD = nbIMD;
         NbInsOkMG = nbIOMG;
-        NbInsOKMD = nbIOMD;
+        NbInsOkMD = nbIOMD;
         NbGame = nbG;
         NameSong = nS;
         timeTotal = tT;
@@ -36,10 +36,10 @@ public class Trace{
         LifeRest = lR;
         ScoreActuelle = sA;
         ScoreTotal = sT;
-        ScoreLeft = sL;
+        ScoreGauche = sG;
     }
 
-    public getId()
+    public int getId()
     {
         return Id;
     }

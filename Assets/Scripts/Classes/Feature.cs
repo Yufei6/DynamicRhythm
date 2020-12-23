@@ -8,26 +8,29 @@ public class Feature
     private int age;
 
     public Feature()
-    {    
+    {
+        //TODO
+        sex = 1;
+        age = 1;    
     }
 
 
-    public getSex()
+    public int getSex()
     {
         return sex;
     }
 
-    public getAge()
+    public int getAge()
     {
         return age;
     }
 
-    public SetQuestion()
+    public void SetQuestion()
     {
         //TODO
     }
 
-    public GetReponse()
+    public void GetReponse()
     {
         //TODO
     }
