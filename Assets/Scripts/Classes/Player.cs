@@ -43,14 +43,45 @@ public class Player
 
     }
     public int calcul_limit(Feature feature){
-    	return 1;
+        int age =feature.getAge();
+        if( age >= 70){
+            limit=80;
+        }
+        else if( age < 12){
+            limit=90;
+        }
+        else{
+            limit =100;
+        }
+    	return limit;
     }
 
     public float calcul_coef(Score score){
-    	return 1.0f;
+        float inc = score.increase;
+        if (inc <= 0){
+            coef=0f;
+        }
+        else if (inc>20){
+            coef =1.2f;
+        }
+        else{
+            coef=1f;
+        }
+    	return coef;
     }
 
-    public void GuessLorR(){
+    public string GuessLorR(){
+        if(capG>65){
+            return "Gaucher";
+        }
+        else if(capD>65){
+            return "Droitier";
+        }else{
+            return "Ambidextrie";
+
+        }
+
+        
 
     }
     

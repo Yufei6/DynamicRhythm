@@ -28,10 +28,13 @@ public class Feature
     public void SetQuestion()
     {
         //TODO
+        //
     }
 
-    public void GetReponse()
+    public void GetReponse(int sex1 ,int age1)
     {
+        sex=sex1;
+        age=age1;
         //TODO
     }
 }
