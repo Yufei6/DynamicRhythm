@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Player 
 {
-	private string name;
-	private float vdi;
-	private int limit;
-	private float coef;
-	private Score score;
-	private Feature feature;
-	private float capD;
-	private float capG;
-	private string filename;
+	public string name;
+	public float vdi;
+	public int limit;
+	public float coef;
+	public Score score;
+	public Feature feature;
+	public float capD;
+	public float capG;
+	public string filename;
+    public float alpha;
     public Player()
     {
 
@@ -28,8 +29,17 @@ public class Player
     	coef = calcul_coef(score);
     	if (traces.Length != 0){
     		Trace lasttrace =traces[traces.Length-1];
-
-    	}
+            float coef2 = lasttrace.ScoreActuelle/lasttrace.ScoreTotal;
+            capG = lasttrace.ScoreGauche / lasttrace.ScoreActuelle;
+            capD = 100- capG;
+            vdi = vdi*(1-alpha)+ coef2*coef*alpha;
+            alpha = alpha*0.8f;
+    	}else{
+            capG=50;
+            capD=50;
+            vdi=limit;
+            alpha=1;
+        }
 
     }
     public int calcul_limit(Feature feature){
