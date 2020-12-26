@@ -7,11 +7,11 @@ public class Feature
     private int sex;
     private int age;
 
-    public Feature()
+    public Feature(int sex ,int age)
     {
         //TODO
-        sex = 1;
-        age = 1;    
+        this.sex =sex;
+        this.age =age;    
     }
 
 
