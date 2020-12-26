@@ -44,21 +44,21 @@ public class Player
     public void load(string filename){
         try
         {
-            string[] lines = File.ReadAllLines(filepath);
+            string[] lines = File.ReadAllLines(filename);
             foreach (string l in lines)
             {
                 string[] words = l.Split(',');
                 try
                 {
                     name=words[0];
-                    vdi=Convert.ToFloat32(words[1]);
-                    limit= Convert.ToInt32(words[2]);
-                    coef=Convert.ToInt32(words[3]);
+                    //vdi=Convert.ToFloat32(words[1]);
+                    //limit= Convert.ToInt32(words[2]);
+                    //coef=Convert.ToInt32(words[3]);
                     score.lastscore=Convert.ToInt32(words[4]);
-                    score.increase=Convert.ToFloat32(words[5]);
-                    capD=Convert.ToFloat32(words[6]);
-                    capG=Convert.ToFloat32(words[7]);
-                    alpha=Convert.ToFloat32(words[8]);
+                    //score.increase=Convert.ToFloat32(words[5]);
+                    //capD=Convert.ToFloat32(words[6]);
+                    //capG=Convert.ToFloat32(words[7]);
+                    //alpha=Convert.ToFloat32(words[8]);
                 }
                 catch (System.Exception)
                 {
@@ -80,9 +80,10 @@ public class Player
 
 
     public void modeliser(Trace trace){
+        score.updatescore(trace);
     	coef = calcul_coef(score);
-        float coef2 = trace.ScoreActuelle/trace.ScoreTotal;
-        capG = trace.ScoreGauche / trace.ScoreActuelle;
+        float coef2 = trace.scoreActuelle/trace.scoreTotal;
+        capG = trace.scoreGauche / trace.scoreActuelle;
         capD = 100- capG;
         vdi = vdi*(1-alpha)+ coef2*coef*alpha;
         alpha = alpha*0.8f;

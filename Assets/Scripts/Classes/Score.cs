@@ -16,17 +16,13 @@ public class Score
        this.increase =1;
     }
     public void updatescore(Trace trace){
-<<<<<<< Updated upstream
+
     	int score=trace.scoreActuelle;
-    	increase=score/lastscore*100-100;
-=======
-    	int score=trace.ScoreActuelle;
         if (lastscore != -1){
             increase=score/lastscore*100-100;
         }else{
             increase=1;
         }
->>>>>>> Stashed changes
     	lastscore=score;
     	all_score=all_score.Append(score).ToArray();
     }
