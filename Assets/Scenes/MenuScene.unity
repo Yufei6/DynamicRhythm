@@ -1522,6 +1522,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780056340}
   m_CullTransparentMesh: 0
+--- !u!114 &1874478122 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2370850563193286147, guid: 21d775cc8c262af429d656632939b0ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 2370850564250706740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c9fa7e8e5d16748b96111f2ab7adb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1881259951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,7 +1546,6 @@ GameObject:
   - component: {fileID: 1881259955}
   - component: {fileID: 1881259954}
   - component: {fileID: 1881259953}
-  - component: {fileID: 1881259956}
   m_Layer: 5
   m_Name: ButtonStart
   m_TagString: Untagged
@@ -1605,8 +1616,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1881259956}
-        m_MethodName: startChoose
+      - m_Target: {fileID: 1874478122}
+        m_MethodName: StartChoose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1653,20 +1664,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881259951}
   m_CullTransparentMesh: 0
---- !u!114 &1881259956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881259951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0afd279a679fece4faba33f94881e30c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerGO: {fileID: 2370850563193286146, guid: 21d775cc8c262af429d656632939b0ed,
-    type: 3}
 --- !u!1001 &2370850564250706740
 PrefabInstance:
   m_ObjectHideFlags: 0
