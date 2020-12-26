@@ -16,7 +16,7 @@ public class Player
 	public float capG;
     public float alpha;
 
-    public Player(string name,int age ,int sex)
+    public Player(int age ,int sex,string name)
     {
         this.name = name;
         feature = new Feature(age,sex);
