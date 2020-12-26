@@ -14,20 +14,12 @@ public class ControllerSystem : MonoBehaviour
 
     public int currentState;
 
-    private Controller c;
+    private Controller controller;
 
     // Start is called before the first frame update
     void Start()
     {
-        string folder_path = "Assets/Music/";
-        Debug.Log("CCC"+System.Environment.CurrentDirectory);
-        DontDestroyOnLoad(gameObject);
-        Song s = new Song("TEST");
-        s.ReadFile( folder_path + "Enegie.txt");
-        foreach (Instruction i in s.listIns)
-        {
-            Debug.Log("YY "+i.getTime());
-        }
+        controller = new Controller();
     }
 
     public int getState()

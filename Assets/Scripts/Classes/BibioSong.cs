@@ -23,7 +23,7 @@ public class BibioSong
                 string[] words = l.Split(',');
                 string song_name = words[0];
                 string song_path = words[1];
-                new_song = new Song(song_name);
+                Song new_song = new Song(song_name);
                 new_song.ReadFile(song_path);
                 listSongs.Add(new_song);
             }

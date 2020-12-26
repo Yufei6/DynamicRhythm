@@ -8,11 +8,11 @@ using System.IO;
 public class ManagerTrace
 {
 	public ArrayList listTrace;
-	public int NbTraces;
+	public int nbTraces;
 
     public ManagerTrace(string filepath)
     {
-        NbTraces = 0;
+        nbTraces = 0;
         listTrace = new ArrayList();
         try
         {
@@ -20,12 +20,6 @@ public class ManagerTrace
             foreach (string l in lines)
             {
                 string[] words = l.Split(',');
-                string song_name = words[0];
-                string song_path = words[1];
-                new_song = new Song(song_name);
-                new_song.ReadFile(song_path);
-                listSongs.Add(new_song);
-                
                 try
                 {
                     int nbInsTotal = Convert.ToInt32(words[0]);
@@ -40,7 +34,7 @@ public class ManagerTrace
                     int scoreActuelle = Convert.ToInt32(words[9]);
                     int scoreTotal = Convert.ToInt32(words[10]);
                     int scoreGauche = Convert.ToInt32(words[11]);
-                    Trace t = new trace(nbInsTotal, nbInsMG, nbInsMD, nbInsOkMG, nbInsOkMD, nbGame, nameSong, timeTotal, healRest, scoreActuelle, scoreTotal, scoreGauche);
+                    Trace t = new Trace(nbInsTotal, nbInsMG, nbInsMD, nbInsOkMG, nbInsOkMD, nbGame, nameSong, timeTotal, healRest, scoreActuelle, scoreTotal, scoreGauche);
                     listTrace.Add(t);
                 }
                 catch (System.Exception)
@@ -57,11 +51,11 @@ public class ManagerTrace
     }
 
     public void AddTrace(Trace t){
-    	NbTraces +=1;
+    	nbTraces +=1;
     	listTrace.Add(t);
     }
 
-    public GetTrace(int id){
+    public Trace GetTrace(int id){
         foreach (Trace t in listTrace)
         {
             if (t.id == id)
@@ -78,7 +72,7 @@ public class ManagerTrace
         {
             foreach (Trace t in listTrace)
             {
-                file.WriteLine(t.GetAllInformation);
+                file.WriteLine(t.GetAllInformation());
             }
         }
     }

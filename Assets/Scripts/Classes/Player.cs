@@ -29,8 +29,8 @@ public class Player
     	coef = calcul_coef(score);
     	if (traces.Length != 0){
     		Trace lasttrace =traces[traces.Length-1];
-            float coef2 = lasttrace.ScoreActuelle/lasttrace.ScoreTotal;
-            capG = lasttrace.ScoreGauche / lasttrace.ScoreActuelle;
+            float coef2 = lasttrace.scoreActuelle/lasttrace.scoreTotal;
+            capG = lasttrace.scoreGauche / lasttrace.scoreActuelle;
             capD = 100- capG;
             vdi = vdi*(1-alpha)+ coef2*coef*alpha;
             alpha = alpha*0.8f;

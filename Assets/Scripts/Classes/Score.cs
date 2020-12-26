@@ -16,7 +16,7 @@ public class Score
        this.increase =increase;
     }
     public void updatescore(Trace trace){
-    	int score=trace.ScoreActuelle;
+    	int score=trace.scoreActuelle;
     	increase=score/lastscore*100-100;
     	lastscore=score;
     	all_score=all_score.Append(score).ToArray();

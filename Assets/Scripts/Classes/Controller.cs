@@ -6,15 +6,14 @@ using UnityEngine;
 
 public class Controller
 {
-    public int i = 0;
-    private string pathTrace = "Assets/Trace/trace.txt";
+    private string pathTrace = "Assets/Trace/traces.txt";
     private string pathSong = "Assets/Music/bibio.txt";
     private string pathPlayer = "Assets/Player/player.txt";
     public Player player;
     public ManagerTrace managerTrace;
     public BibioSong bibioSong;
 
-    public Controller(int k){
+    public Controller(){
         managerTrace = new ManagerTrace(pathTrace);
         bibioSong = new BibioSong(pathSong);
         player = null;
@@ -43,7 +42,7 @@ public class Controller
 
     public void Continue()
     {
-        player = new Player(pathPlyer);
+        player = new Player(pathPlayer);
     }
 
     public void SendQAndA()
@@ -51,7 +50,7 @@ public class Controller
 
     }
 
-    public Song ChoiceSons()
+    public void ChoiceSons()
     {
 
     }
