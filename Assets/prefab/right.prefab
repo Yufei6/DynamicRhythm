@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: -6240647373895836044}
   m_Layer: 5
   m_Name: right
-  m_TagString: Untagged
+  m_TagString: right
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,4 +163,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764d10c3f4bc74b1cb9ca77c2d4921b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 500

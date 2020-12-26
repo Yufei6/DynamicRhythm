@@ -15,6 +15,7 @@ public class generateaction : MonoBehaviour
 	public GameObject parents;
     private ArrayList listIns=new ArrayList();
     private float pre=0f;
+    public GameObject perfect;
 
 
     // Start is called before the first frame update
@@ -62,8 +63,6 @@ public class generateaction : MonoBehaviour
     	int action =ins.getAction();
         Debug.Log(t);
     	if (frameA <= t && frameA+1>t ){
-            
-            
             i+=1;
     		//only for test
             if(pre+60<t){
@@ -87,6 +86,37 @@ public class generateaction : MonoBehaviour
         		}
             }
     	}
+        if(Input.GetKeyDown(KeyCode.UpArrow)){
+            GameObject[] gos=  GameObject.FindGameObjectsWithTag("up");
+            foreach (GameObject go in gos)
+            {
+                float diff = go.transform.position.y-700f;
+                
+                if (diff < 50) 
+                {
+                    perfect.SetActive(true);
+                }
+            }
+
+
+        }
+        if(Input.GetKeyDown(KeyCode.RightArrow)){
+            GameObject[] gos=  GameObject.FindGameObjectsWithTag("right");
+            foreach (GameObject go in gos)
+            {
+                float diff = go.transform.position.y-700f;
+                
+                if (diff < 50) 
+                {
+                    perfect.SetActive(true);
+                }
+            }
+
+        }if(Input.GetKeyDown(KeyCode.UpArrow)){
+
+        }if(Input.GetKeyDown(KeyCode.UpArrow)){
+
+        }
 
     }
     void Update()

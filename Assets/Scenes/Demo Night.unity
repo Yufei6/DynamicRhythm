@@ -3477,7 +3477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1561970161
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4295,6 +4295,7 @@ MonoBehaviour:
   up: {fileID: 142871869817489217, guid: ce83a2f6cddde4a81a6086d38f3da03b, type: 3}
   framepersecond: 30
   parents: {fileID: 1505095082}
+  perfect: {fileID: 1561970160}
 --- !u!1 &2103911766
 GameObject:
   m_ObjectHideFlags: 0
