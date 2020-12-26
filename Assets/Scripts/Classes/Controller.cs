@@ -45,11 +45,6 @@ public class Controller
         player = new Player(pathPlayer);
     }
 
-    public void SendQAndA()
-    {
-
-    }
-
     public void ChoiceSons()
     {
 

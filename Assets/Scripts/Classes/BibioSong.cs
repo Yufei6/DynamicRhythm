@@ -15,6 +15,7 @@ public class BibioSong
 
     public BibioSong(string filepath)
     {
+        listSongs = new ArrayList();
         try
         {
             string[] lines = File.ReadAllLines(filepath);

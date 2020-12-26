@@ -15,12 +15,14 @@ public class ControllerSystem : MonoBehaviour
     public int currentState;
 
     private Controller controller;
-    
+    private Song song;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = new Controller();
+        DontDestroyOnLoad(gameObject);
+        currentState = StateMenu;
     }
 
     public int GetState()
@@ -41,17 +43,29 @@ public class ControllerSystem : MonoBehaviour
         SceneManager.LoadScene("CreatePlayerScene");
     }
 
-    public void CreatePlayer()
+    public void CreatePlayer(string name, int age, int sex)
     {
-        
-        controller.StartFromBegining("name",1,1);
+        controller.StartFromBegining(name, age, sex);
         SceneManager.LoadScene("ChooseScene");
     }
+
+    public void StartPlaying()
+    {
+        currentState = StatePlaying;
+        SceneManager.LoadScene("GameScene");
+    }
+
 
     public void Quit()
     {
         controller.Save();
         Application.Quit();
+    }
+
+    public void Back2Menu()
+    {
+        currentState = StateMenu;
+        SceneManager.LoadScene("MenuScene");
     }
 
     // Update is called once per frame
