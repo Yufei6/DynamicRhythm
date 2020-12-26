@@ -77,25 +77,7 @@ public class Player
     public void save(string filename){
     	
     }
-<<<<<<< Updated upstream
-    public void modeliser(Trace[] traces, Score score, Feature feature){
-    	limit = calcul_limit(feature);
-    	coef = calcul_coef(score);
-    	if (traces.Length != 0){
-    		Trace lasttrace =traces[traces.Length-1];
-            float coef2 = lasttrace.scoreActuelle/lasttrace.scoreTotal;
-            capG = lasttrace.scoreGauche / lasttrace.scoreActuelle;
-            capD = 100- capG;
-            vdi = vdi*(1-alpha)+ coef2*coef*alpha;
-            alpha = alpha*0.8f;
-    	}else{
-            capG=50;
-            capD=50;
-            vdi=limit;
-            alpha=1;
-        }
-=======
->>>>>>> Stashed changes
+
 
     public void modeliser(Trace trace){
     	coef = calcul_coef(score);
