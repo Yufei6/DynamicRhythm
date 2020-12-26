@@ -30,11 +30,11 @@ public class NewBehaviourScript1 : MonoBehaviour
             Debug.Log("file");
         }
         if(state){
-            Instantiate(up, new Vector3(835+405, 100, 0), Quaternion.identity,parents.transform);
-            GameObject d=Instantiate(up, new Vector3(405, 600, 0), Quaternion.identity,parents.transform);
-            Debug.Log(d.transform.position.x);
-            Debug.Log(carre.transform.position.x);
-            Debug.Log(t.text);
+            //Instantiate(up, new Vector3(835+405, 100, 0), Quaternion.identity,parents.transform);
+            //GameObject d=Instantiate(up, new Vector3(405, 600, 0), Quaternion.identity,parents.transform);
+            //Debug.Log(d.transform.position.x);
+            //Debug.Log(carre.transform.position.x);
+            //Debug.Log(t.text);
             state= false;
         }
         

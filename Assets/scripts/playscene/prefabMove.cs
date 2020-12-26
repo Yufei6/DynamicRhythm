@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class prefabMove : MonoBehaviour
 {
-	public float movespeed=100f;
+	private float movespeed=250f;
     // Start is called before the first frame update
     void Start()
     {
         
     }
     void FixedUpdate(){
+        Debug.Log(movespeed* Time.deltaTime);
     	if (transform.position.y <= 900){
     		transform.Translate(0,movespeed* Time.deltaTime,0);
     	}else{
