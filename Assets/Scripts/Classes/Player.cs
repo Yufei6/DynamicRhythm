@@ -51,14 +51,14 @@ public class Player
                 try
                 {
                     name=words[0];
-                    //vdi=Convert.ToFloat32(words[1]);
-                    //limit= Convert.ToInt32(words[2]);
-                    //coef=Convert.ToInt32(words[3]);
+                    vdi=Convert.ToSingle(words[1]);
+                    limit= Convert.ToInt32(words[2]);
+                    coef=Convert.ToInt32(words[3]);
                     score.lastscore=Convert.ToInt32(words[4]);
-                    //score.increase=Convert.ToFloat32(words[5]);
-                    //capD=Convert.ToFloat32(words[6]);
-                    //capG=Convert.ToFloat32(words[7]);
-                    //alpha=Convert.ToFloat32(words[8]);
+                    score.increase=Convert.ToSingle(words[5]);
+                    capD=Convert.ToSingle(words[6]);
+                    capG=Convert.ToSingle(words[7]);
+                    alpha=Convert.ToSingle(words[8]);
                 }
                 catch (System.Exception)
                 {
@@ -75,7 +75,24 @@ public class Player
     }
 
     public void save(string filename){
+        string str =tostring();
+        FileStream fsOverwrite = new FileStream(filename, FileMode.Create);
+        StreamWriter swOverwrite = new StreamWriter(fsOverwrite);
+        swOverwrite.WriteLine(str);
+        swOverwrite.Close();
     	
+    }
+    private string tostring(){
+        string str = name +" , "+vdi.ToString();
+        str = str + " , "+limit.ToString();
+        str = str + " , "+coef.ToString();
+        str = str + " , "+score.lastscore.ToString();
+        str = str + " , "+score.increase.ToString();
+        str = str + " , "+capD.ToString();
+        str = str + " , "+capG.ToString();
+        str = str + " , "+alpha.ToString();
+        return str;
+
     }
 
 
