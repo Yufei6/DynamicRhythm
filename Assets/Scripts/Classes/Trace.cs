@@ -13,14 +13,13 @@ public class Trace{
     public int nbGame;
     public string nameSong;
     public int timeTotal;
-    public int lifeLost;
-    public int lifeRest;
+    public int healthRest;
     public int scoreActuelle;
     public int scoreTotal;
     public int scoreGauche;
 
     // Initialization of class Trace
-    public Trace(int nbIT, int nbIMG, int nbIMD, int nbIOMG, int nbIOMD, int nbG, string nS, int tT, int lL,int lR, int sA, int sT, int sG)
+    public Trace(int nbIT, int nbIMG, int nbIMD, int nbIOMG, int nbIOMD, int nbG, string nS, int tT,int lR, int sA, int sT, int sG)
     {
         id = idKey;
         idKey += 1;
@@ -32,8 +31,7 @@ public class Trace{
         nbGame = nbG;
         nameSong = nS;
         timeTotal = tT;
-        lifeLost = lL;
-        lifeRest = lR;
+        healthRest = lR;
         scoreActuelle = sA;
         scoreTotal = sT;
         scoreGauche = sG;
@@ -49,8 +47,7 @@ public class Trace{
         res += nbGame.ToString()+",";
         res += nameSong.ToString()+",";
         res += timeTotal.ToString()+",";
-        res += lifeLost.ToString()+",";
-        res += lifeRest.ToString()+",";
+        res += healthRest.ToString()+",";
         res += scoreActuelle.ToString()+",";
         res += scoreTotal.ToString()+",";
         res += scoreGauche.ToString();
