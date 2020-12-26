@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Controller
 {
-    private string pathTrace = "Assets/Trace/traces.txt";
+    private string pathTrace = "Assets/Trace/trace.txt";
     private string pathSong = "Assets/Music/bibio.txt";
     private string pathPlayer = "Assets/Player/player.txt";
     public Player player;
@@ -35,7 +35,7 @@ public class Controller
 
     }
 
-    public void StartFromBegining(int age, int sex, string name)
+    public void StartFromBegining(string name ,int age, int sex)
     {
         player = new Player(age, sex, name);
     }
@@ -78,5 +78,11 @@ public class Controller
     public void Quit()
     {
 
+    }
+
+    public void Save()
+    {
+        player.save(pathPlayer);
+        managerTrace.Save(pathTrace);
     }
 }
