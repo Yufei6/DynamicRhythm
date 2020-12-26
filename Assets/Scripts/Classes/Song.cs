@@ -7,14 +7,15 @@ using System.IO;
 public class Song 
 {
     static int idKey=0;
-    private int id;
-    private string name;
-    private ArrayList listIns;
+    public int id;
+    public string name;
+    public ArrayList listIns;
 
-    public Song(string name)
+    public Song(string n)
     {
         id = idKey;
         idKey += 1;
+        name = n;
         listIns = new ArrayList();
     }
 

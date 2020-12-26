@@ -4,43 +4,59 @@ using UnityEngine;
 
 public class Trace{
     static int idKey=0;
-    public int Id;
-    public int NbInsTotal;
-    public int NbInsMG;
-    public int NbInsMD;
-    public int NbInsOkMG;
-    public int NbInsOkMD;
-    public int NbGame;
-    public string NameSong;
+    public int id;
+    public int nbInsTotal;
+    public int nbInsMG;
+    public int nbInsMD;
+    public int nbInsOkMG;
+    public int nbInsOkMD;
+    public int nbGame;
+    public string nameSong;
     public int timeTotal;
-    public int LifeLost;
-    public int LifeRest;
-    public int ScoreActuelle;
-    public int ScoreTotal;
-    public int ScoreGauche;
+    public int lifeLost;
+    public int lifeRest;
+    public int scoreActuelle;
+    public int scoreTotal;
+    public int scoreGauche;
 
     // Initialization of class Trace
     public Trace(int nbIT, int nbIMG, int nbIMD, int nbIOMG, int nbIOMD, int nbG, string nS, int tT, int lL,int lR, int sA, int sT, int sG)
     {
-        Id = idKey;
+        id = idKey;
         idKey += 1;
-        NbInsTotal = nbIT;
-        NbInsMG = nbIMG;
-        NbInsMD = nbIMD;
-        NbInsOkMG = nbIOMG;
-        NbInsOkMD = nbIOMD;
-        NbGame = nbG;
-        NameSong = nS;
+        nbInsTotal = nbIT;
+        nbInsMG = nbIMG;
+        nbInsMD = nbIMD;
+        nbInsOkMG = nbIOMG;
+        nbInsOkMD = nbIOMD;
+        nbGame = nbG;
+        nameSong = nS;
         timeTotal = tT;
-        LifeLost = lL;
-        LifeRest = lR;
-        ScoreActuelle = sA;
-        ScoreTotal = sT;
-        ScoreGauche = sG;
+        lifeLost = lL;
+        lifeRest = lR;
+        scoreActuelle = sA;
+        scoreTotal = sT;
+        scoreGauche = sG;
     }
 
-    public int getId()
-    {
-        return Id;
+    public string GetAllInformation(){
+        string res = "";
+        res += nbInsTotal.ToString()+",";
+        res += nbInsMG.ToString()+",";
+        res += nbInsMD.ToString()+",";
+        res += nbInsOkMG.ToString()+",";
+        res += nbInsOkMD.ToString()+",";
+        res += nbGame.ToString()+",";
+        res += nameSong.ToString()+",";
+        res += timeTotal.ToString()+",";
+        res += lifeLost.ToString()+",";
+        res += lifeRest.ToString()+",";
+        res += scoreActuelle.ToString()+",";
+        res += scoreTotal.ToString()+",";
+        res += scoreGauche.ToString();
+        return res;
+
     }
+
+
 }
