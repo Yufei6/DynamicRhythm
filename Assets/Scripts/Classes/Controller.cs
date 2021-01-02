@@ -9,6 +9,7 @@ public class Controller
     private string pathTrace = "Assets/Trace/trace.txt";
     private string pathSong = "Assets/Music/bibio.txt";
     private string pathPlayer = "Assets/Player/player.txt";
+    
     public Player player;
     public ManagerTrace managerTrace;
     public BibioSong bibioSong;

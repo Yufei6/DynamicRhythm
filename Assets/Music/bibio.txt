@@ -1,1 +1,3 @@
 Enegie,Assets/Music/Enegie.txt
+HappyRock,Assets/Music/HappyRock.txt
+Ukelele,Assets/Music/Ukelele.txt

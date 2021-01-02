@@ -52,5 +52,22 @@ public class BibioSong
         return null;
     }
 
+    public string GetSongName(int id)
+    {
+        foreach (Song s in listSongs)
+        {
+            if (s.id==id)
+            {
+                return s.name;
+            }
+        }
+        return null;
+    }
+
+    public int GetLengthSong()
+    {
+        return listSongs.Count;
+    }
+
     
 }

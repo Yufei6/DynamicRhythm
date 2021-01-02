@@ -14,13 +14,14 @@ public class ControllerSystem : MonoBehaviour
 
     public int currentState;
 
-    private Controller controller;
+    public Controller controller;
     private Song song;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = new Controller();
+        song = null;
         DontDestroyOnLoad(gameObject);
         currentState = StateMenu;
     }
@@ -66,6 +67,11 @@ public class ControllerSystem : MonoBehaviour
     {
         currentState = StateMenu;
         SceneManager.LoadScene("MenuScene");
+    }
+
+    public int GetLengthSong()
+    {
+        return controller.bibioSong.GetLengthSong();
     }
 
     // Update is called once per frame
