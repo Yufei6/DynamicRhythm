@@ -16,6 +16,7 @@ public class generateaction : MonoBehaviour
     private ArrayList listIns=new ArrayList();
     private float pre=0f;
     public GameObject perfect;
+    private int count;
 
 
     // Start is called before the first frame update
@@ -56,7 +57,9 @@ public class generateaction : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate(){
-        
+        float rightx= parents.transform.position.x+381;
+        //right
+        float leftx=parents.transform.position.x-445;
     	Instruction ins= (Instruction)listIns[i];
     	frameA+=1;
     	float t=ins.getTime()*framepersecond;
@@ -68,21 +71,21 @@ public class generateaction : MonoBehaviour
             if(pre+60<t){
                 pre=t;
         		if (action ==0){
-        			Instantiate(up, new Vector3(835+405, 100, 0), Quaternion.identity,parents.transform);
+        			Instantiate(up, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
         		}
         		if (action ==1){
-        			Instantiate(right, new Vector3(835+405, 100, 0), Quaternion.identity,parents.transform);
+        			Instantiate(right, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
         		}
         		if (action ==2){
-        			Instantiate(up, new Vector3(835+405, 100, 0), Quaternion.identity,parents.transform);
-        			Instantiate(up, new Vector3(405, 100, 0), Quaternion.identity,parents.transform);
+        			Instantiate(up, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
+        			Instantiate(up, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
         		}
         		if (action ==3){
-        			Instantiate(up, new Vector3(835+405, 100, 0), Quaternion.identity,parents.transform);
-        			Instantiate(left, new Vector3(405, 100, 0), Quaternion.identity,parents.transform);
+        			Instantiate(up, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
+        			Instantiate(left, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
         		}if (action ==4){
-        			Instantiate(up, new Vector3(835+405, 100, 0), Quaternion.identity,parents.transform);
-        			Instantiate(left, new Vector3(405, 100, 0), Quaternion.identity,parents.transform);
+        			Instantiate(up, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
+        			Instantiate(left, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
         		}
             }
     	}
@@ -90,11 +93,13 @@ public class generateaction : MonoBehaviour
             GameObject[] gos=  GameObject.FindGameObjectsWithTag("up");
             foreach (GameObject go in gos)
             {
-                float diff = go.transform.position.y-700f;
+                float diff = go.transform.position.y-parents.transform.position.y-180;
                 
-                if (diff < 50) 
+                
+                if (diff < 50&&diff> -50) 
                 {
                     perfect.SetActive(true);
+                    Destroy(go);
                 }
             }
 
@@ -104,18 +109,35 @@ public class generateaction : MonoBehaviour
             GameObject[] gos=  GameObject.FindGameObjectsWithTag("right");
             foreach (GameObject go in gos)
             {
-                float diff = go.transform.position.y-700f;
+                float diff = go.transform.position.y-parents.transform.position.y-200;
                 
                 if (diff < 50) 
                 {
                     perfect.SetActive(true);
+                    Destroy(go);
                 }
             }
 
-        }if(Input.GetKeyDown(KeyCode.UpArrow)){
+        }if(Input.GetKeyDown(KeyCode.LeftArrow)){
+            GameObject[] gos=  GameObject.FindGameObjectsWithTag("left");
+            foreach (GameObject go in gos)
+            {
+                float diff = go.transform.position.y-700f;
+                
+                if (diff < 20) 
+                {
+                    perfect.SetActive(true);
+                    Destroy(go);
+                }
+            }
 
-        }if(Input.GetKeyDown(KeyCode.UpArrow)){
-
+        }
+        if (perfect.activeSelf){
+            count=count+1;
+        }
+        if (count>10){
+            perfect.SetActive(false);
+            count=0;
         }
 
     }
