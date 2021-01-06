@@ -20,7 +20,7 @@ public class ChooseSong : MonoBehaviour
 	private AudioClip Clips;
     string pathFolder;
     string path;
-    AudioSource audio;
+    AudioSource _audio;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,10 +33,10 @@ public class ChooseSong : MonoBehaviour
         nameSong = cs.controller.bibioSong.GetSongName(idSong);
         SongName.text = nameSong;
         path = pathFolder + nameSong + ".mp3";
-        audio = this.GetComponent<AudioSource>();
-        audio.loop = true;
-        audio.clip = audios[idSong];
-        audio.Play();
+        _audio = this.GetComponent<AudioSource>();
+        _audio.loop = true;
+        _audio.clip = audios[idSong];
+        _audio.Play();
     }
 
 
@@ -47,6 +47,7 @@ public class ChooseSong : MonoBehaviour
 
     public void StartGame()
     {
+    	cs.SetSong(idSong);
         cs.StartPlaying();
     }
 
@@ -57,10 +58,10 @@ public class ChooseSong : MonoBehaviour
 		nameSong = cs.controller.bibioSong.GetSongName(idSong);
 		SongName.text = nameSong;
         path = pathFolder + nameSong + ".mp3";
-        audio.clip = audios[idSong];
-        if(ButtonStop.active)
+        _audio.clip = audios[idSong];
+        if(ButtonStop.activeSelf)
         {
-        	audio.Play();
+        	_audio.Play();
         }
     }
 
@@ -75,23 +76,23 @@ public class ChooseSong : MonoBehaviour
 		nameSong = cs.controller.bibioSong.GetSongName(idSong);
 		SongName.text = nameSong;
         path = pathFolder + nameSong + ".mp3";
-        audio.clip = audios[idSong];
-        if(ButtonStop.active)
+        _audio.clip = audios[idSong];
+        if(ButtonStop.activeSelf)
         {
-        	audio.Play();
+        	_audio.Play();
         }
     }
 
     public void StopMusic()
     {
-    	audio.Stop();
+    	_audio.Stop();
     	ButtonPlay.SetActive(true);
     	ButtonStop.SetActive(false);
     }
 
     public void StartMusic()
     {
-    	audio.Play();
+    	_audio.Play();
     	ButtonPlay.SetActive(false);
     	ButtonStop.SetActive(true);
     }

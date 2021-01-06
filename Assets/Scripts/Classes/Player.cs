@@ -16,9 +16,9 @@ public class Player
 	public float capG;
     public float alpha;
 
-    public Player(int age ,int sex,string name)
+    public Player(int age ,int sex,string _name)
     {
-        this.name = name;
+        name = _name;
         feature = new Feature(age,sex);
         limit = calcul_limit(feature);
         score = new Score();
@@ -27,7 +27,7 @@ public class Player
     public Player()
     
     {
-        this.name = "alpha";
+        name = "alpha";
         feature = new Feature(100,1);
         limit = calcul_limit(feature);
         score = new Score();
@@ -84,14 +84,14 @@ public class Player
     }
     
     private string tostring(){
-        string str = name +" , "+vdi.ToString();
-        str = str + " , "+limit.ToString();
-        str = str + " , "+coef.ToString();
-        str = str + " , "+score.lastscore.ToString();
-        str = str + " , "+score.increase.ToString();
-        str = str + " , "+capD.ToString();
-        str = str + " , "+capG.ToString();
-        str = str + " , "+alpha.ToString();
+        string str = name +","+vdi.ToString();
+        str = str + ","+limit.ToString();
+        str = str + ","+coef.ToString();
+        str = str + ","+score.lastscore.ToString();
+        str = str + ","+score.increase.ToString();
+        str = str + ","+capD.ToString();
+        str = str + ","+capG.ToString();
+        str = str + ","+alpha.ToString();
         return str;
 
     }
