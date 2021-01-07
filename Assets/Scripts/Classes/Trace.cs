@@ -18,6 +18,35 @@ public class Trace{
     public int scoreTotal;
     public int scoreGauche;
 
+
+    private string currentTimeText;
+    private int hour;
+    private int minute;
+    private int second;
+    private int year;
+    private int month;
+    private int day;
+
+
+    public Trace(int nbIT, int nbIMG, int nbIMD, int nbIOMG, int nbIOMD, int nbG, string nS, int tT,int lR, int sA, int sT, int sG, string ctt)
+    {
+        id = idKey;
+        idKey += 1;
+        nbInsTotal = nbIT;
+        nbInsMG = nbIMG;
+        nbInsMD = nbIMD;
+        nbInsOkMG = nbIOMG;
+        nbInsOkMD = nbIOMD;
+        nbGame = nbG;
+        nameSong = nS;
+        timeTotal = tT;
+        healthRest = lR;
+        scoreActuelle = sA;
+        scoreTotal = sT;
+        scoreGauche = sG;
+        currentTimeText = ctt;
+    }
+
     // Initialization of class Trace
     public Trace(int nbIT, int nbIMG, int nbIMD, int nbIOMG, int nbIOMD, int nbG, string nS, int tT,int lR, int sA, int sT, int sG)
     {
@@ -35,24 +64,30 @@ public class Trace{
         scoreActuelle = sA;
         scoreTotal = sT;
         scoreGauche = sG;
+        hour = System.DateTime.Now.Hour;
+        minute = System.DateTime.Now.Minute;
+        second = System.DateTime.Now.Second;
+        year = System.DateTime.Now.Year;
+        month = System.DateTime.Now.Month;
+        day = System.DateTime.Now.Day;
+        currentTimeText = string.Format("{0:D2}:{1:D2}:{2:D2} " + "{3:D4}/{4:D2}/{5:D2}", hour, minute, second, year, month, day);
     }
 
     public string GetAllInformation(){
-        string res = "";
-        res += nbInsTotal.ToString()+",";
-        res += nbInsMG.ToString()+",";
-        res += nbInsMD.ToString()+",";
-        res += nbInsOkMG.ToString()+",";
-        res += nbInsOkMD.ToString()+",";
-        res += nbGame.ToString()+",";
-        res += nameSong.ToString()+",";
-        res += timeTotal.ToString()+",";
-        res += healthRest.ToString()+",";
-        res += scoreActuelle.ToString()+",";
-        res += scoreTotal.ToString()+",";
-        res += scoreGauche.ToString();
-        return res;
-
+        string informations = "";
+        informations += nbInsTotal.ToString()+",";
+        informations += nbInsMG.ToString()+",";
+        informations += nbInsMD.ToString()+",";
+        informations += nbInsOkMG.ToString()+",";
+        informations += nbInsOkMD.ToString()+",";
+        informations += nbGame.ToString()+",";
+        informations += nameSong.ToString()+",";
+        informations += timeTotal.ToString()+",";
+        informations += healthRest.ToString()+",";
+        informations += scoreActuelle.ToString()+",";
+        informations += scoreTotal.ToString()+",";
+        informations += scoreGauche.ToString()+","+currentTimeText;
+        return informations;
     }
 
 

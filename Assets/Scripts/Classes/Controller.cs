@@ -22,19 +22,15 @@ public class Controller
 
     public void UpdatePlayer(Trace t)
     {
-        player.modeliser(t);
         managerTrace.AddTrace(t);
+        player.modeliser(managerTrace.GetListTrace());
     }
 
-    public void UpdateScore(Trace t)
+    public void SaveManagerTrace()
     {
-        
+        managerTrace.Save(pathTrace);
     }
 
-    public void Delete(string s)
-    {
-
-    }
 
     public void StartFromBegining(string name ,int age, int sex)
     {
@@ -46,40 +42,28 @@ public class Controller
         player = new Player(pathPlayer);
     }
 
-    public void ChoiceSons()
-    {
 
+    public int GetLengthSong()
+    {
+        return bibioSong.GetLengthSong();
     }
 
-    public void StartSong(Song s)
+    public ArrayList GetListTrace()
     {
-
+        return managerTrace.GetListTrace();
     }
 
-    public void EndSong()
+    public void AddTrace(Trace t)
     {
-
+        managerTrace.AddTrace(t);
     }
 
-    public void CreateAndAddTrace()
-    {
-
-    }
-
-    public void Pausse()
-    {
-
-    }
 
     public Song GetSong(int id)
     {
         return bibioSong.GetSong(id);
     }
 
-    public void Quit()
-    {
-
-    }
 
     public void Save()
     {

@@ -25,6 +25,12 @@ public class Player
         score = new Score();
     }
 
+    public Player(string filename)
+    {
+        score=new Score();
+        load(filename);
+    }
+
     public Player()
     
     {
@@ -34,11 +40,6 @@ public class Player
         score = new Score();
     }
 
-    public Player(string filename)
-    {
-        score=new Score();
-        load(filename);
-    }
 
 
 
@@ -81,7 +82,6 @@ public class Player
         StreamWriter swOverwrite = new StreamWriter(fsOverwrite);
         swOverwrite.WriteLine(str);
         swOverwrite.Close();
-    	
     }
     
     private string tostring(){

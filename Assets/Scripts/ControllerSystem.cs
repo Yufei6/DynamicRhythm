@@ -77,13 +77,6 @@ public class ControllerSystem : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
-
-    public void Quit()
-    {
-        controller.Save();
-        Application.Quit();
-    }
-
     public void Back2Menu()
     {
         currentState = StateMenu;
@@ -92,7 +85,34 @@ public class ControllerSystem : MonoBehaviour
 
     public int GetLengthSong()
     {
-        return controller.bibioSong.GetLengthSong();
+        return controller.GetLengthSong();
+    }
+
+    public ArrayList GetListTrace()
+    {
+        return controller.GetListTrace();
+    }
+
+    public void SaveManagerTrace()
+    {
+        controller.SaveManagerTrace();
+    }
+
+    public void AddTrace(Trace t)
+    {
+        controller.AddTrace(t);
+    }
+
+
+    public Player GetPlayer()
+    {
+        return controller.player;
+    }
+
+    public void Quit()
+    {
+        controller.Save();
+        Application.Quit();
     }
 
     // Update is called once per frame
