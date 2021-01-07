@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.41662854, g: 0.20926967, b: 0.43779325, a: 1}
+  m_IndirectSpecularColor: {r: 0.4166275, g: 0.20927131, b: 0.43779656, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -445,7 +445,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 766.1084, y: 384.00204}
+  m_AnchoredPosition: {x: 766, y: 384.00204}
   m_SizeDelta: {x: 100, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &112586480
@@ -2142,7 +2142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: perfect
+  m_text: PERFECT!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: d5f5b9a2d8cd94346ab43855c21b6f7a, type: 2}
@@ -2441,9 +2441,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'GOOD
-
-    slow'
+  m_text: SLOW
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 777db3bc7ca2e46ca830ca5f7c456ad8, type: 2}
@@ -3038,9 +3036,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'GOOD
-
-    FAST'
+  m_text: FAST
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 777db3bc7ca2e46ca830ca5f7c456ad8, type: 2}
@@ -3803,7 +3799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: perfect
+  m_text: PERFECT!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 1906e1c4cbe434542837c1d7cf63db37, type: 2}
@@ -3903,6 +3899,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3775905819498199014, guid: bef0aebed1e8241bd8c9450567e955a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161790671254252500, guid: bef0aebed1e8241bd8c9450567e955a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899488373190442352, guid: bef0aebed1e8241bd8c9450567e955a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5243028747188877300, guid: bef0aebed1e8241bd8c9450567e955a4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3957,6 +3968,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570390763254167584, guid: bef0aebed1e8241bd8c9450567e955a4,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9122501762233419239, guid: bef0aebed1e8241bd8c9450567e955a4,
         type: 3}
@@ -4215,9 +4231,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'GOOD
-
-    SLOW'
+  m_text: SLOW
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 5dde4708c045542cb8df64828fc9d1d7, type: 2}
@@ -4524,9 +4538,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'GOOD
-
-    FAST'
+  m_text: FAST
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 5dde4708c045542cb8df64828fc9d1d7, type: 2}
@@ -4720,6 +4732,7 @@ GameObject:
   - component: {fileID: 2060009301}
   - component: {fileID: 2060009304}
   - component: {fileID: 2060009303}
+  - component: {fileID: 2060009305}
   m_Layer: 0
   m_Name: script
   m_TagString: Untagged
@@ -4783,7 +4796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2529a5a38e9014888a275fb09e832201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 0}
   left: {fileID: 2118604059236805480, guid: 70c126eff80da40fbbb4b7a8673084df, type: 3}
   right: {fileID: 2693970421340300204, guid: 8131a7c1b782248bdb54f95b28207690, type: 3}
   up: {fileID: 142871869817489217, guid: ce83a2f6cddde4a81a6086d38f3da03b, type: 3}
@@ -4819,6 +4831,23 @@ MonoBehaviour:
   - {fileID: 1019421364}
   - {fileID: 1388121488}
   - {fileID: 1266757934}
+--- !u!114 &2060009305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060009300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b01bdbd81f85f5a42aac42400e12d1f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - {fileID: 8300000, guid: 90aa12c8e77c2c04da622bc5af074408, type: 3}
+  - {fileID: 8300000, guid: 3ebd8790fcfe84e4cb64aaea65d231e2, type: 3}
+  - {fileID: 8300000, guid: b656366121592ff4c90abd57cd185d74, type: 3}
+  audioSource: {fileID: 270152211}
 --- !u!1 &2103911766
 GameObject:
   m_ObjectHideFlags: 0
@@ -5023,7 +5052,7 @@ PrefabInstance:
     - target: {fileID: 6350039887058090281, guid: 8c6a2bbba3b734e9cb0156b3a65b877a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 766.1084
+      value: 766
       objectReference: {fileID: 0}
     - target: {fileID: 6350039887058090281, guid: 8c6a2bbba3b734e9cb0156b3a65b877a,
         type: 3}

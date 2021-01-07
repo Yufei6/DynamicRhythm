@@ -11,6 +11,7 @@ public class ChooseSong : MonoBehaviour
 	public GameObject ButtonStop;
 	public TextMeshProUGUI SongNameGO;
 	public AudioClip[] audios;
+	public GameObject[] presentations;
 	
 	TextMeshProUGUI SongName;
     private ControllerSystem cs;
@@ -37,6 +38,7 @@ public class ChooseSong : MonoBehaviour
         _audio.loop = true;
         _audio.clip = audios[idSong];
         _audio.Play();
+        ChangePresentation();
     }
 
 
@@ -47,7 +49,7 @@ public class ChooseSong : MonoBehaviour
 
     public void StartGame()
     {
-    	cs.SetSong(idSong);
+    	cs.SetSongId(idSong);
         cs.StartPlaying();
     }
 
@@ -63,6 +65,7 @@ public class ChooseSong : MonoBehaviour
         {
         	_audio.Play();
         }
+        ChangePresentation();
     }
 
     public void PreviousSong()
@@ -81,6 +84,7 @@ public class ChooseSong : MonoBehaviour
         {
         	_audio.Play();
         }
+        ChangePresentation();
     }
 
     public void StopMusic()
@@ -95,5 +99,21 @@ public class ChooseSong : MonoBehaviour
     	_audio.Play();
     	ButtonPlay.SetActive(false);
     	ButtonStop.SetActive(true);
+    }
+
+    private void ChangePresentation()
+    {
+    	for(int i=0; i<3; i++)
+    	{
+    		if(i == idSong)
+    		{
+    			presentations[i].SetActive(true);
+    		}
+    		else
+    		{
+    			presentations[i].SetActive(false);
+    		}
+    	}
+    	
     }
 }

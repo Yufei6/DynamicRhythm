@@ -71,6 +71,11 @@ public class Controller
 
     }
 
+    public Song GetSong(int id)
+    {
+        return bibioSong.GetSong(id);
+    }
+
     public void Quit()
     {
 

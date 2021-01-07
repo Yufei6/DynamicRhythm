@@ -7,7 +7,7 @@ using TMPro;
 
 public class generateaction : MonoBehaviour
 {
-	public GameObject go;
+    private ControllerSystem cs;
 	private Song song;
 	public GameObject left,right,up ;
 	private int frameA=0;
@@ -38,42 +38,12 @@ public class generateaction : MonoBehaviour
     public GameObject[] lifes;
 
 
-
-
     // Start is called before the first frame update
     void Start()
     {
-    	getSong("Assets/Music/Enegie1.txt");
-        //song=go.GetComponent<ControllerSystem>().song;
-    }
-    private void getSong(string filepath){
-        
-    	try
-        {
-            string[] lines = File.ReadAllLines(filepath);
-            
-            foreach (string l in lines)
-            {
-                string[] words = l.Split(',');
-                try
-                {
-                    Instruction ins = new Instruction(Convert.ToInt32(words[1]),Convert.ToSingle(words[0]));
-                    listIns.Add(ins);
-                    
-                }
-                catch (System.Exception)
-                {
-                    Debug.Log("An exception when change String to int/float has been thrown!");
-                }
-                
-            }
-        }
-        catch(IOException)
-        {
-            Debug.Log("An IO exception has been thrown!");
-        }
-        
-
+        GameObject controller =  GameObject.Find("Controller(Clone)");
+        cs = controller.GetComponent<ControllerSystem>();
+        listIns = cs.GetSong().GetListIns();
     }
 
     // Update is called once per frame
@@ -174,9 +144,6 @@ public class generateaction : MonoBehaviour
             }
         }
 
-
-      
-        
         GameObject[] gosright=  GameObject.FindGameObjectsWithTag("right");
         foreach (GameObject go in gosright)
         {
@@ -204,8 +171,7 @@ public class generateaction : MonoBehaviour
             }
             
         }
-
-        
+ 
         GameObject[] gosleft=  GameObject.FindGameObjectsWithTag("left");
         foreach (GameObject go in gosleft)
         {
@@ -233,7 +199,6 @@ public class generateaction : MonoBehaviour
             }
         }
 
-        
         if (perfectleft.activeSelf ){
             countleft=countleft+1;
         }
@@ -247,7 +212,6 @@ public class generateaction : MonoBehaviour
             countleft=countleft+1;
         }
 
-        
         if (countleft>15){
             perfectleft.SetActive(false);
             missleft.SetActive(false);
@@ -269,7 +233,6 @@ public class generateaction : MonoBehaviour
             countright +=1;
         }
 
-        
         if (countright>15){
             perfectright.SetActive(false);
             missright.SetActive(false);
@@ -278,16 +241,16 @@ public class generateaction : MonoBehaviour
             countright=0;
         }
         score1.text=score.ToString();
-        
-
-        
-
     }
+
+
     private void loselife(){
         if (life >=0){
             lifes[life].SetActive(false);
         }
     }
+
+
     void Update()
     {
         

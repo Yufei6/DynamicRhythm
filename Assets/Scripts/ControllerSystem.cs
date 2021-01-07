@@ -38,14 +38,25 @@ public class ControllerSystem : MonoBehaviour
         SceneManager.LoadScene("ChooseScene");
     }
 
-    public void SetSong(int id)
+    public void SetSongId(int id)
     {
         songId = id;
     }
 
-    public int GetSong()
+    public int GetSongId()
     {
         return songId;
+    }
+
+    public Song GetSong()
+    {
+        return controller.GetSong(songId);
+    }
+
+
+    public Song GetSong(int id)
+    {
+        return controller.GetSong(id);
     }
 
     public void StartCreatePlayer()

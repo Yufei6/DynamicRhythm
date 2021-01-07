@@ -50,7 +50,7 @@ public class Song
         }
     }
 
-    public ArrayList getListIns()
+    public ArrayList GetListIns()
     {
         return listIns;
     }
