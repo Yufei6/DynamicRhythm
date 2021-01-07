@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using System.Linq;
 
 public class Player 
 {
@@ -97,13 +98,20 @@ public class Player
     }
 
 
-    public void modeliser(Trace trace){
+    public void modeliser(ArrayList traces){
+        Trace trace=(Trace)traces[traces.Count - 1];
+
         score.updatescore(trace);
     	coef = calcul_coef(score);
-        float coef2 = trace.scoreActuelle/trace.scoreTotal;
-        capG = trace.scoreGauche / trace.scoreActuelle;
+        int sumgauche=0;
+        int sum=0;
+        foreach(Trace t in traces){
+            sumgauche += t.scoreGauche;
+            sum +=  t.scoreActuelle;
+        }
+        capG = sumgauche / sum;
         capD = 100- capG;
-        vdi = vdi*(1-alpha)+ coef2*coef*alpha;
+        vdi = vdi*(1-alpha)+ vdi*coef*alpha;
         alpha = alpha*0.8f;
     }
 
@@ -130,7 +138,7 @@ public class Player
             coef =1.2f;
         }
         else{
-            coef=1f;
+            coef=1f+inc/100;
         }
     	return coef;
     }

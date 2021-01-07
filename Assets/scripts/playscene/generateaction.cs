@@ -57,14 +57,14 @@ public class generateaction : MonoBehaviour
     	frameA+=1;
     	float t=ins.getTime()*framepersecond;
     	int action =ins.getAction();
-        Debug.Log(t);
+        Debug.Log(ins.getTime());
     	if (frameA <= t && frameA+1>t ){
             i+=1;
             if(i>=listIns.Count){
                 i=0;
             }
     		//only for test
-            if(pre+60<t){
+            //if(pre+60<t){
                 pre=t;
         		if (action ==0){
         			Instantiate(up, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
@@ -83,7 +83,7 @@ public class generateaction : MonoBehaviour
         			Instantiate(up, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
         			Instantiate(left, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
         		}
-            }
+            //}
     	}
         
         GameObject[] gos=  GameObject.FindGameObjectsWithTag("up");
@@ -97,16 +97,16 @@ public class generateaction : MonoBehaviour
                     {
                         perfectleft.SetActive(true);
                         Destroy(go);
-                        score+=2;
+                        score+=200;
                     }
                     else if(diff < goodrange &&diff >= perfectrange){
                         goodleftslow.SetActive(true);
                         Destroy(go);
-                        score+=1;
+                        score+=100;
                     }else if(diff > -goodrange &&diff <=- perfectrange){
                         goodleftfast.SetActive(true);
                         Destroy(go);
-                        score+=1;
+                        score+=100;
                     }
                 }
                 if (diff >missrange) 
@@ -123,15 +123,15 @@ public class generateaction : MonoBehaviour
                     {
                         perfectright.SetActive(true);
                         Destroy(go);
-                        score+=2;
+                        score+=200;
                     }else if(diff < goodrange &&diff >= perfectrange){
                         goodrightslow.SetActive(true);
                         Destroy(go);
-                        score+=1;
+                        score+=100;
                     }else if(diff > -goodrange &&diff <=- perfectrange){
                         goodrightfast.SetActive(true);
                         Destroy(go);
-                        score+=1;
+                        score+=100;
                     }
                 }
                 if (diff >missrange) 
@@ -152,15 +152,15 @@ public class generateaction : MonoBehaviour
                 if (diff < perfectrange&&diff> -perfectrange){
                         perfectright.SetActive(true);
                         Destroy(go);
-                        score+=2;
+                        score+=200;
                 }else if(diff < goodrange &&diff >= perfectrange){
                     goodrightslow.SetActive(true);
                     Destroy(go);
-                    score+=1;
+                    score+=100;
                 }else if(diff > -goodrange &&diff <=- perfectrange){
                     goodrightfast.SetActive(true);
                     Destroy(go);
-                    score+=1;
+                    score+=100;
                 }
             }
             if (diff >missrange) {
@@ -180,15 +180,15 @@ public class generateaction : MonoBehaviour
                 if (diff < perfectrange&&diff> -perfectrange){
                         perfectleft.SetActive(true);
                         Destroy(go);
-                        score+=2;
+                        score+=200;
                 }else if(diff < goodrange &&diff >= perfectrange){
                     goodleftslow.SetActive(true);
                     Destroy(go);
-                    score+=1;
+                    score+=100;
                 }else if(diff > -goodrange &&diff <=- perfectrange){
                     goodleftfast.SetActive(true);
                     Destroy(go);
-                    score+=1;
+                    score+=100;
                 }
             }
             if (diff >missrange) {
