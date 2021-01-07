@@ -35,7 +35,7 @@ public class ManagerTrace
                     int scoreActuelle = Convert.ToInt32(words[9]);
                     int scoreTotal = Convert.ToInt32(words[10]);
                     int scoreGauche = Convert.ToInt32(words[11]);
-                    string strTime = Convert.ToInt32(words[12]);
+                    string strTime = words[12];
                     Trace t = new Trace(nbInsTotal, nbInsMG, nbInsMD, nbInsOkMG, nbInsOkMD, nbGame, nameSong, timeTotal, healRest, scoreActuelle, scoreTotal, scoreGauche, strTime);
                     listTrace.Add(t);
                 }

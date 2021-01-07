@@ -14,7 +14,7 @@ public class ControllerSystem : MonoBehaviour
 
     public int currentState;
 
-    private Controller controller;
+    public Controller controller;
     private int songId;
 
     // Start is called before the first frame update

@@ -22,8 +22,8 @@ public class Controller
 
     public void UpdatePlayer(Trace t)
     {
-        player.modeliser(t);
         managerTrace.AddTrace(t);
+        player.modeliser(managerTrace.GetListTrace());
     }
 
     public void SaveManagerTrace()
