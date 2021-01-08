@@ -3,6 +3,7 @@ using System.Timers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class Controller
 {
@@ -18,6 +19,10 @@ public class Controller
         managerTrace = new ManagerTrace(pathTrace);
         bibioSong = new BibioSong(pathSong);
         player = null;
+        if (File.Exists(pathPlayer)) 
+        {
+            Continue();
+        }
     }
 
     public void UpdatePlayer(Trace t)

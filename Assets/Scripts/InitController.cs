@@ -6,7 +6,7 @@ public class InitController : MonoBehaviour
 {
     public GameObject controllerPrefab;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if(GameObject.Find("Controller(Clone)")==null)
         {

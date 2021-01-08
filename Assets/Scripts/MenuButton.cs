@@ -1,9 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuButton : MonoBehaviour
 {
+    public GameObject canvasNewPlayer;
+    public GameObject buttonStart;
     private ControllerSystem cs;
     private GameObject controller;
     // Start is called before the first frame update
@@ -13,6 +17,10 @@ public class MenuButton : MonoBehaviour
         if (controller!=null)
         {
             cs = controller.GetComponent<ControllerSystem>();
+            if (!cs.CheckPlayer()){
+                buttonStart.GetComponent<Button>().interactable = false;
+            }
+
         }
     }
 
@@ -23,6 +31,17 @@ public class MenuButton : MonoBehaviour
 
     public void ButtonNewPlayer()
     {
+        canvasNewPlayer.SetActive(true);
+    }
+
+    public void ButtonCancleNewPlayer()
+    {
+        canvasNewPlayer.SetActive(false);
+    }
+
+    public void ButtonOkNewPlayer()
+    {
+        canvasNewPlayer.SetActive(false);
         cs.StartCreatePlayer();
     }
 
@@ -37,12 +56,14 @@ public class MenuButton : MonoBehaviour
             controller =  GameObject.Find("Controller(Clone)");
             if (controller==null)
             {
-                Debug.Log("WTF");
+                Debug.Log("Can't find controller! (Yufei)");
             }
             else 
             {
-                Debug.Log("YES");
                 cs = controller.GetComponent<ControllerSystem>();
+                if (!cs.CheckPlayer()){
+                    buttonStart.GetComponent<Button>().interactable = false;
+                }
             }
            
         }

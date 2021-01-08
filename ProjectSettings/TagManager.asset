@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - up
+  - left
+  - right
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - 
   - 
   - UIb
-  - 
+  - UIBackGround
   - 
   - 
   - 
@@ -38,8 +41,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Back
+  - name: UIBackGround
     uniqueID: 3100108337
+    locked: 0
+  - name: New Layer
+    uniqueID: 221672543
     locked: 0
   - name: Default
     uniqueID: 0

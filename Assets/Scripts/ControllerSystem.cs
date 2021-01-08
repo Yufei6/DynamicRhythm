@@ -16,14 +16,23 @@ public class ControllerSystem : MonoBehaviour
 
     public Controller controller;
     private int songId;
+    private List<Joycon> joycons;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         controller = new Controller();
         DontDestroyOnLoad(gameObject);
         currentState = StateMenu;
         songId = -1;
+    }
+
+    void Start()
+    {
+        joycons = JoyconManager.Instance.j;
+        if (joycons.Count < 2) {
+            Debug.Log("NO JOYCON!!");
+        }
     }
 
     public int GetState()
@@ -34,7 +43,6 @@ public class ControllerSystem : MonoBehaviour
     public void StartChoose()
     {
         currentState = StateChoose;
-        controller.Continue();
         SceneManager.LoadScene("ChooseScene");
     }
 
@@ -107,6 +115,15 @@ public class ControllerSystem : MonoBehaviour
     public Player GetPlayer()
     {
         return controller.player;
+    }
+
+    public bool CheckPlayer()
+    {
+        if (controller.player==null)
+        {
+            return false;
+        }
+        return true;
     }
 
     public void Quit()
