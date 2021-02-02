@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.IO;
 
 public class Trace{
     static int idKey=0;
@@ -90,10 +92,10 @@ public class Trace{
         return informations;
     }
 
-    public static Trace AnalyseFromSmallTrace(String filepath){
+    public static Trace AnalyseFromSmallTrace(string filepath){
         int idSong;
         string userName;
-        string datatime;
+        string datetime = "";
         int framePerSecond;
         List<List<float>> list_acc = new List<List<float>>();
         try
@@ -141,5 +143,8 @@ public class Trace{
         {
             Debug.Log("An IO exception has been thrown!");
         }
+
+        Trace t = new Trace(0, 0, 0, 0, 0, 0, "NameSong", 0, 0, 0, 0,0, datetime);
+        return t;
     }
 }
