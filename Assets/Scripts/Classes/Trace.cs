@@ -90,5 +90,56 @@ public class Trace{
         return informations;
     }
 
-
+    public static Trace AnalyseFromSmallTrace(String filepath){
+        int idSong;
+        string userName;
+        string datatime;
+        int framePerSecond;
+        List<List<float>> list_acc = new List<List<float>>();
+        try
+        {
+            string[] lines = File.ReadAllLines(filepath);
+            int i = 0;
+            foreach (string l in lines)
+            {
+                string[] words = l.Split(',');
+                //the first line of file smallTrace
+                if (i==0){
+                    try
+                    {
+                        idSong = Convert.ToInt32(words[0]);
+                        userName = words[1];
+                        datetime = words[2];
+                        framePerSecond = Convert.ToInt32(words[3]);
+                    }
+                    catch(System.Exception)
+                    {
+                        Debug.Log("An exception when change String to int has been thrown!");
+                    }
+                }
+                else{
+                    try
+                    {
+                        float acc_x_left = Convert.ToSingle(words[0]);
+                        float acc_y_left = Convert.ToSingle(words[1]);
+                        float acc_z_left = Convert.ToSingle(words[2]);
+                        float acc_x_right = Convert.ToSingle(words[3]);
+                        float acc_y_right = Convert.ToSingle(words[4]);
+                        float acc_z_right = Convert.ToSingle(words[5]);
+                        List<float> item = new List<float>(new float[]{acc_x_left, acc_y_left, acc_z_left, acc_x_right, acc_y_right, acc_z_right});
+                        list_acc.Add(item);
+                    }
+                    catch (System.Exception)
+                    {
+                        Debug.Log("An exception when change String to int has been thrown!");
+                    }
+                }
+        
+            }
+        }
+        catch(IOException)
+        {
+            Debug.Log("An IO exception has been thrown!");
+        }
+    }
 }
