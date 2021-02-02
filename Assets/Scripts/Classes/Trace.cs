@@ -134,7 +134,7 @@ public class Trace{
                         Debug.Log("An exception when change String to int has been thrown!");
                     }
                 }
-        
+                i = i + 1;
             }
         }
         catch(IOException)
