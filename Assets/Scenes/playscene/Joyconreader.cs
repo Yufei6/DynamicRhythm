@@ -26,5 +26,6 @@ public class Joyconreader : MonoBehaviour
         var accel1 = m_joyconR.GetAccel();
         Debug.Log("L"+accel.x);
         Debug.Log("R"+accel1.x);
+    
     }
 }
