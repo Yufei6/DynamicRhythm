@@ -42,22 +42,25 @@ public class generateaction : MonoBehaviour
     private float NbGauche=0;// action a realise guache
     private float NbDroite=0;// action a realise droite
     private Random rnd = new Random();
+    private ArrayList actionframe;
+    private float movespeed;
+    private int preframe;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        actionframe=new ArrayList();
         GameObject controller =  GameObject.Find("Controller(Clone)");
         cs = controller.GetComponent<ControllerSystem>();
         listIns = cs.GetSong().GetListIns();
+        
+        calculpreframe();
         calculnbaction();
         NbTotal=gameObject.GetComponent<calculAdaption>().NbTotal;
-
         NbGauche=gameObject.GetComponent<calculAdaption>().NbGauche;
         NbDroite=gameObject.GetComponent<calculAdaption>().NbDroite;
-        Debug.Log(NbTotal);
-
     }
 
     // Update is called once per frame
@@ -71,7 +74,7 @@ public class generateaction : MonoBehaviour
     	frameA+=1;
     	float t=ins.getTime()*framepersecond;
     	int action =ins.getAction();
-    	if (frameA <= t && frameA+1>t ){
+    	if (frameA+preframe <= t && frameA+preframe+1>t ){
             i+=1;
             if(i>=listIns.Count){
                 i=0;
@@ -86,10 +89,15 @@ public class generateaction : MonoBehaviour
                     if (a < pourcent){
                         a=rnd.Next(0,101);
                         if(a<100*NbGauche/NbTotal){
-                            Instantiate(up, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
+                            Instantiate(up, new Vector3(leftx, righty, 0), Quaternion.identity,parents.transform);
                             NbGauche-=1;
+                            string temp=(frameA+preframe).ToString()+", 0";
+                            actionframe.Add(temp);
+                            Debug.Log(temp);
                         }else{
-                            Instantiate(up, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);    
+                            Instantiate(up, new Vector3(rightx, righty, 0), Quaternion.identity,parents.transform);
+                            string temp=(frameA+preframe).ToString()+", 2";
+                            actionframe.Add(temp);    
                         }
                         NbTotal-=1;
                     }
@@ -100,10 +108,14 @@ public class generateaction : MonoBehaviour
                     if (a < pourcent){
                         a=rnd.Next(0,101);
                         if(a<100*NbGauche/NbTotal){
-                            Instantiate(left, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
+                            Instantiate(left, new Vector3(leftx, righty, 0), Quaternion.identity,parents.transform);
                             NbGauche-=1;
+                            string temp=(frameA+preframe).ToString()+", 1";
+                            actionframe.Add(temp);
                         }else{
-                            Instantiate(right, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);    
+                            Instantiate(right, new Vector3(rightx, righty, 0), Quaternion.identity,parents.transform);
+                            string temp=(frameA+preframe).ToString()+", 3";
+                            actionframe.Add(temp);    
                         }
                         NbTotal-=1;
                     }
@@ -112,22 +124,26 @@ public class generateaction : MonoBehaviour
         		if (action ==2){
                     int a=rnd.Next(0,101);
                     if (a < pourcent){
-                        Instantiate(up, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
-                        Instantiate(up, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
+                        Instantiate(up, new Vector3(leftx, righty, 0), Quaternion.identity,parents.transform);
+                        Instantiate(up, new Vector3(rightx, righty, 0), Quaternion.identity,parents.transform);
                         NbGauche-=1;
                         NbDroite-=1;
-                        NbTotal-=2;           
+                        NbTotal-=2;
+                        string temp=(frameA+preframe).ToString()+", 4";
+                        actionframe.Add(temp);           
                     }
                     totalAction-=2;
         		}
         		if (action ==3){
         			int a=rnd.Next(0,101);
                     if (a < pourcent){
-                        Instantiate(left, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
-                        Instantiate(right, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
+                        Instantiate(left, new Vector3(leftx, righty, 0), Quaternion.identity,parents.transform);
+                        Instantiate(right, new Vector3(rightx, righty, 0), Quaternion.identity,parents.transform);
                         NbGauche-=1;
                         NbDroite-=1;
-                        NbTotal-=2;           
+                        NbTotal-=2;
+                        string temp=(frameA+preframe).ToString()+", 5";
+                        actionframe.Add(temp);           
                     }
                     totalAction-=2;
         		}if (action ==4){
@@ -135,11 +151,15 @@ public class generateaction : MonoBehaviour
                     if (a < pourcent){
                         a=rnd.Next(0,101);
                         if(a< 100*NbGauche/NbTotal){
-                            Instantiate(left, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
-                            Instantiate(up, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
+                            Instantiate(left, new Vector3(leftx, righty, 0), Quaternion.identity,parents.transform);
+                            Instantiate(up, new Vector3(rightx, righty, 0), Quaternion.identity,parents.transform);
+                            string temp=(frameA+preframe).ToString()+", 7";
+                            actionframe.Add(temp);
                         }else{
-                            Instantiate(up, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
-                            Instantiate(right, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
+                            Instantiate(up, new Vector3(leftx, righty, 0), Quaternion.identity,parents.transform);
+                            Instantiate(right, new Vector3(rightx, righty, 0), Quaternion.identity,parents.transform);
+                            string temp=(frameA+preframe).ToString()+", 6";
+                            actionframe.Add(temp);
                         }
                         NbGauche-=1;
                         NbDroite-=1;
@@ -211,7 +231,7 @@ public class generateaction : MonoBehaviour
         GameObject[] gosright=  GameObject.FindGameObjectsWithTag("right");
         foreach (GameObject go in gosright)
         {
-            float diff = go.transform.position.y-carreright.transform.position.y;
+            float diff = go.transform.position.y-carreright.transform.position.y-20;
             if(Input.GetKeyDown(KeyCode.RightArrow)){
                 if (diff < perfectrange&&diff> -perfectrange){
                         perfectright.SetActive(true);
@@ -331,6 +351,19 @@ public class generateaction : MonoBehaviour
                 totalAction+=2;
             }
         }
+    }
+    private void calculpreframe()
+    {
+       int idSong=cs.GetSongId();
+       if(idSong==0){
+            preframe=500*50/200;
+        }
+        if(idSong==1){
+            preframe=500*50/150;
+        }
+        if(idSong==2){
+            preframe=500*50/300;
+        } 
     }
 
 

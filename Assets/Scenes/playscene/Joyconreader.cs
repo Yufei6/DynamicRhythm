@@ -7,11 +7,13 @@ public class Joyconreader : MonoBehaviour
 	private List<Joycon>    m_joycons;
 	private Joycon          m_joyconL;
     private Joycon          m_joyconR;
-    private ArrayList       accllistleft;
-    private ArrayList       accllistright;
+    public ArrayList       accllistleft;
+    public ArrayList       accllistright;
     // Start is called before the first frame update
     void Start()
     {
+        accllistleft=new ArrayList();
+        accllistright=new ArrayList();
     	m_joycons = JoyconManager.Instance.j;
 
         if ( m_joycons == null || m_joycons.Count <= 0 ) return;
@@ -26,6 +28,8 @@ public class Joyconreader : MonoBehaviour
     {
         var accel = m_joyconL.GetAccel();
         var accel1 = m_joyconR.GetAccel();
+        accllistleft.Add(accel);
+        accllistright.Add(accel1);
         
         //Debug.Log("R"+accel1.x);
     
