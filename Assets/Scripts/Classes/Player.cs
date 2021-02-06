@@ -108,10 +108,12 @@ public class Player
             sumgauche += t.scoreGauche;
             sum +=  t.scoreActuelle;
         }
-        capG = sumgauche / sum;
-        capD = 100- capG;
-        vdi = vdi*(1-alpha)+ vdi*coef*alpha;
-        alpha = alpha*0.8f;
+        if (sum!=0){
+            capG = sumgauche / sum;
+            capD = 100- capG;
+            vdi = vdi*(1-alpha)+ vdi*coef*alpha;
+            alpha = alpha*0.8f;
+        }
     }
 
     public int calcul_limit(Feature feature){
