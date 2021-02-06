@@ -52,6 +52,10 @@ public class ManagerTrace
         }
     }
 
+    public void ClearTrace(){
+        listTrace = new ArrayList();
+    }
+
     public void AddTrace(Trace t){
     	nbTraces +=1;
     	listTrace.Add(t);

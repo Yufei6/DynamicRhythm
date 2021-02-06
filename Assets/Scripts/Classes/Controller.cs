@@ -7,7 +7,7 @@ using System.IO;
 
 public class Controller
 {
-    private string pathTrace = "Assets/Trace/trace.txt";
+    private string pathTrace = "Assets/Resources/Trace/trace.txt";
     private string pathSong = "Assets/Music/bibio.txt";
     private string pathPlayer = "Assets/Player/player.txt";
     
@@ -33,8 +33,8 @@ public class Controller
         }
         else{
             managerTrace.AddTrace(t);
-            Debug.Log("HELLOOOOO:;"+t.GetAllInformation());
             player.modeliser(managerTrace.GetListTrace());
+            managerTrace.Save(pathTrace);
         }
     }
 
@@ -47,6 +47,8 @@ public class Controller
     public void StartFromBegining(string name ,int age, int sex)
     {
         player = new Player(age, sex, name);
+        managerTrace.ClearTrace();
+        managerTrace.Save(pathTrace);
     }
 
     public void Continue()
@@ -116,7 +118,7 @@ public class Controller
         int lR = 0;
 
         //Search new small trace file
-        string folder_path = "Assets/Trace/New";
+        string folder_path = "Assets/Resources/Trace/New";
         string file_path = SearchFileName(folder_path);
         if (file_path != "Error")
         {
@@ -371,22 +373,23 @@ public class Controller
 
             
 
-            string ori_path = "Assets/Trace/New/" + file_path;
-            string des_path = "Assets/Trace/Old/" + file_path;
+            string ori_path = "Assets/Resources/Trace/New/" + file_path;
+            string des_path = "Assets/Resources/Trace/Old/" + file_path;
             //move the file to Old
             // Ensure that the target does not exist.
-            try
-            {
-                //if (File.Exists(des_path)) 
-                // {
-                //     File.Delete(des_path);
-                // }
-                File.Move(ori_path, des_path);
-            }
-            catch (Exception e)
-            {
-                Debug.Log("The process failed when moving file to Old!(yufei)");
-            }
+            // try
+            // {
+            //     if (File.Exists(des_path)) 
+            //     {
+            //         File.Delete(des_path);
+            //     }
+            //     File.Move(ori_path, des_path);
+            // }
+            // catch (Exception e)
+            // {
+            //     Debug.Log("The process failed when moving file to Old!(yufei)");
+            // }
+            moveFiles("Assets/Resources/Trace/New", "Assets/Resources/Trace/Old");
 
 
             Trace t = new Trace(nbIT, nbIMG, nbIMD, nbIOMG, nbIOMD, nbG, s.name, tT, lR, sA, sT, sG, datetime);
@@ -394,5 +397,22 @@ public class Controller
         }
 
         return null;
+    }
+
+
+    private static void moveFiles(string srcFolder, string destFolder)
+    {
+        DirectoryInfo directoryInfo = new DirectoryInfo(srcFolder);
+        FileInfo[] files = directoryInfo.GetFiles();
+         
+        foreach (FileInfo file in files) // Directory.GetFiles(srcFolder)
+        {
+            if (file.Extension == ".txt")
+            {
+                file.MoveTo(Path.Combine(destFolder, file.Name));
+            }
+            // will move all files without if stmt 
+            //file.MoveTo(Path.Combine(destFolder, file.Name));
+        }
     }
 }
