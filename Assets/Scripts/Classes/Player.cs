@@ -100,7 +100,6 @@ public class Player
 
     public void modeliser(ArrayList traces){
         Trace trace=(Trace)traces[traces.Count - 1];
-
         score.updatescore(trace);
     	coef = calcul_coef(score);
         int sumgauche=0;
