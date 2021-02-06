@@ -125,6 +125,10 @@ public class ControllerSystem : MonoBehaviour
         }
         return true;
     }
+    public void ScoreScene(){
+        SceneManager.LoadScene("FinishScene");
+
+    }
 
     public void Quit()
     {

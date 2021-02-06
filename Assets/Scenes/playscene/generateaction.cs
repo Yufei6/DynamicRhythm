@@ -48,6 +48,7 @@ public class generateaction : MonoBehaviour
     private List<Joycon>    m_joycons;
     private Joycon          m_joyconL;
     private Joycon          m_joyconR;
+    private float lastt;
 
 
 
@@ -70,6 +71,9 @@ public class generateaction : MonoBehaviour
         NbTotal=gameObject.GetComponent<calculAdaption>().NbTotal;
         NbGauche=gameObject.GetComponent<calculAdaption>().NbGauche;
         NbDroite=gameObject.GetComponent<calculAdaption>().NbDroite;
+        Instruction ins= (Instruction)listIns[listIns.Count-1];
+        lastt=ins.getTime()*framepersecond;
+
     }
 
     // Update is called once per frame
@@ -88,11 +92,7 @@ public class generateaction : MonoBehaviour
     	if (frameA+preframe <= t && frameA+preframe+1>t ){
             i+=1;
             if(i>=listIns.Count){
-                i=0;
-                ArrayList acclL=gameObject.GetComponent<Joyconreader>().accllistleft;
-                ArrayList acclR=gameObject.GetComponent<Joyconreader>().accllistright;
-                gameObject.GetComponent<writeFichier>().write(actionframe,acclL,acclR);
-                cs.Back2Menu();
+                i=0;   
             }
     		//only for test
             //if(pre+60<t){
@@ -107,7 +107,7 @@ public class generateaction : MonoBehaviour
                             NbGauche-=1;
                             string temp=(frameA+preframe).ToString()+", 0";
                             actionframe.Add(temp);
-                            Debug.Log(temp);
+                            //Debug.Log(temp);
                         }else{
                             Instantiate(up, new Vector3(rightx, righty, 0), Quaternion.identity,parents.transform);
                             string temp=(frameA+preframe).ToString()+", 2";
@@ -339,6 +339,14 @@ public class generateaction : MonoBehaviour
             countright=0;
         }
         score1.text=score.ToString();
+        PlayerPrefs.SetInt("score",score);
+        if((frameA-preframe <= lastt && frameA-preframe+1>lastt)||(life <= 0) ){
+            ArrayList acclL=gameObject.GetComponent<Joyconreader>().accllistleft;
+            ArrayList acclR=gameObject.GetComponent<Joyconreader>().accllistright;
+            gameObject.GetComponent<writeFichier>().write(actionframe,acclL,acclR,life);
+            cs.ScoreScene();
+        }
+
     }
 
 

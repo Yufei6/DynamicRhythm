@@ -30,7 +30,7 @@ public class Joyconreader : MonoBehaviour
         var accel1 = m_joyconR.GetAccel();
         accllistleft.Add(accel);
         accllistright.Add(accel1);
-        Debug.Log(accel);
+        //Debug.Log(accel);
         
         //Debug.Log("R"+accel1.x);
     

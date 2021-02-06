@@ -40,7 +40,7 @@ public class writeFichier : MonoBehaviour
     {
         //write("a","b","c");
     }
-    public void write(ArrayList actionframe,ArrayList acclL,ArrayList acclR)
+    public void write(ArrayList actionframe,ArrayList acclL,ArrayList acclR,int life)
     {
     	var hour = System.DateTime.Now.Hour;
         var minute = System.DateTime.Now.Minute;
@@ -52,7 +52,7 @@ public class writeFichier : MonoBehaviour
     	
     	string filename=player.name+"_"+currentTimeText+"_"+songname+"_trace.txt";
     	string path="Assets/scripts/"+filename;
-    	string firstline=songid.ToString()+","+player.name+","+currentTimeText+","+"50"+","+movespeed.ToString();
+    	string firstline=songid.ToString()+","+player.name+","+currentTimeText+","+"50"+","+movespeed.ToString()+","+life.ToString();
     	FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite); //可以指定盘符，也可以指定任意文件名，还可以为word等文件
         StreamWriter sw = new StreamWriter(fs); // 创建写入流
         sw.WriteLine(firstline);

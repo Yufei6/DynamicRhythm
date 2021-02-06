@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreatePlayerScene.unity
     guid: 672b09ca820e8fe47bbed8007660eda4
+  - enabled: 1
+    path: Assets/Scenes/FinishScene.unity
+    guid: 33126771196ab4bf7af13f543bccad79
   m_configObjects: {}
