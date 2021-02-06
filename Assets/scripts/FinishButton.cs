@@ -9,6 +9,7 @@ public class FinishButton : MonoBehaviour
 	private ControllerSystem cs;
     private GameObject controller;
     public TMP_Text score1;
+    private Controller ct;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,8 @@ public class FinishButton : MonoBehaviour
         if (controller!=null)
         {
             cs = controller.GetComponent<ControllerSystem>();
+            ct = cs.controller;
+            ct.UpdatePlayer();
         }
         score1.text=PlayerPrefs.GetInt("score").ToString();
     }
