@@ -25,8 +25,9 @@ public class Controller
         }
     }
 
-    public void UpdatePlayer(Trace t)
+    public void UpdatePlayer()
     {
+        Trace t = AnalyseFromSmallTrace();
         managerTrace.AddTrace(t);
         player.modeliser(managerTrace.GetListTrace());
     }
