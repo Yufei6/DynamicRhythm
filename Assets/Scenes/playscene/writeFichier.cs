@@ -48,7 +48,7 @@ public class writeFichier : MonoBehaviour
         var year = System.DateTime.Now.Year;
         var month = System.DateTime.Now.Month;
         var day = System.DateTime.Now.Day;
-        string currentTimeText = string.Format("{0:D2}:{1:D2}:{2:D2}_" + "{3:D4}_{4:D2}_{5:D2}", hour, minute, second, year, month, day);
+        string currentTimeText = string.Format("{0:D2}_{1:D2}_{2:D2}_" + "{3:D4}_{4:D2}_{5:D2}", hour, minute, second, year, month, day);
     	
     	string filename=player.name+"_"+currentTimeText+"_"+songname+"_trace.txt";
     	string path="Assets/scripts/"+filename;
