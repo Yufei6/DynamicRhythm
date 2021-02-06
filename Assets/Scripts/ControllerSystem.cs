@@ -76,6 +76,7 @@ public class ControllerSystem : MonoBehaviour
     public void CreatePlayer(string name, int age, int sex)
     {
         controller.StartFromBegining(name, age, sex);
+        PlayerPrefs.SetInt("nbGame",0);
         SceneManager.LoadScene("ChooseScene");
     }
 
