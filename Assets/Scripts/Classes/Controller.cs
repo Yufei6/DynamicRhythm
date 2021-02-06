@@ -81,8 +81,8 @@ public class Controller
         managerTrace.Save(pathTrace);
     }
 
-    public static Trace AnalyseFromSmallTrace(string filepath){
-        int idSong;
+    public Trace AnalyseFromSmallTrace(string filepath){
+        int idSong = 0;
         string userName;
         string datetime = "";
         int framePerSecond;
@@ -133,7 +133,7 @@ public class Controller
             Debug.Log("An IO exception has been thrown!");
         }
 
-        Song s = GetSong(idSong);
+        Song s = bibioSong.GetSong(idSong);
         ArrayList ins = s.GetListIns();
 
         //Compare the trace and ins
