@@ -11,14 +11,16 @@ public class calculAdaption : MonoBehaviour
 	public float NbDroite;
     private ControllerSystem cs;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GameObject controller =  GameObject.Find("Controller(Clone)");
         cs = controller.GetComponent<ControllerSystem>();
         player = cs.GetPlayer();
         ArrayList listIns = cs.GetSong().GetListIns();
-
+        player.vdi=50;
         NbTotal=(int)(player.vdi * listIns.Count/100f);
+        player.capG=50;
+        Debug.Log(NbTotal);
         NbGauche= player.capG * NbTotal/100;
         NbDroite= NbTotal - NbGauche;
         ArrayList result=new ArrayList();

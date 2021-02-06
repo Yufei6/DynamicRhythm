@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.IO;
 using TMPro;
+using Random =System.Random;
 
 public class generateaction : MonoBehaviour
 {
@@ -36,6 +37,12 @@ public class generateaction : MonoBehaviour
     private int score=0;
     private int life=16;
     public GameObject[] lifes;
+    private int totalAction=0;//action total de cette song
+    private int NbTotal=0;// action a realise par utilisateur
+    private float NbGauche=0;// action a realise guache
+    private float NbDroite=0;// action a realise droite
+    private Random rnd = new Random();
+
 
 
     // Start is called before the first frame update
@@ -44,6 +51,13 @@ public class generateaction : MonoBehaviour
         GameObject controller =  GameObject.Find("Controller(Clone)");
         cs = controller.GetComponent<ControllerSystem>();
         listIns = cs.GetSong().GetListIns();
+        calculnbaction();
+        NbTotal=gameObject.GetComponent<calculAdaption>().NbTotal;
+
+        NbGauche=gameObject.GetComponent<calculAdaption>().NbGauche;
+        NbDroite=gameObject.GetComponent<calculAdaption>().NbDroite;
+        Debug.Log(NbTotal);
+
     }
 
     // Update is called once per frame
@@ -57,31 +71,81 @@ public class generateaction : MonoBehaviour
     	frameA+=1;
     	float t=ins.getTime()*framepersecond;
     	int action =ins.getAction();
-        Debug.Log(ins.getTime());
     	if (frameA <= t && frameA+1>t ){
             i+=1;
             if(i>=listIns.Count){
                 i=0;
+                cs.Back2Menu();
             }
     		//only for test
             //if(pre+60<t){
                 pre=t;
+                int pourcent=100*NbTotal/totalAction;
         		if (action ==0){
-        			Instantiate(up, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
+                    int a=rnd.Next(0,101);
+                    if (a < pourcent){
+                        a=rnd.Next(0,101);
+                        if(a<100*NbGauche/NbTotal){
+                            Instantiate(up, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
+                            NbGauche-=1;
+                        }else{
+                            Instantiate(up, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);    
+                        }
+                        NbTotal-=1;
+                    }
+                    totalAction-=1;
         		}
         		if (action ==1){
-        			Instantiate(right, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
+                    int a=rnd.Next(0,101);
+                    if (a < pourcent){
+                        a=rnd.Next(0,101);
+                        if(a<100*NbGauche/NbTotal){
+                            Instantiate(left, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
+                            NbGauche-=1;
+                        }else{
+                            Instantiate(right, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);    
+                        }
+                        NbTotal-=1;
+                    }
+                    totalAction-=1;
         		}
         		if (action ==2){
-        			Instantiate(up, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
-        			Instantiate(up, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
+                    int a=rnd.Next(0,101);
+                    if (a < pourcent){
+                        Instantiate(up, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
+                        Instantiate(up, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
+                        NbGauche-=1;
+                        NbDroite-=1;
+                        NbTotal-=2;           
+                    }
+                    totalAction-=2;
         		}
         		if (action ==3){
-        			Instantiate(up, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
-        			Instantiate(left, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
+        			int a=rnd.Next(0,101);
+                    if (a < pourcent){
+                        Instantiate(left, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
+                        Instantiate(right, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
+                        NbGauche-=1;
+                        NbDroite-=1;
+                        NbTotal-=2;           
+                    }
+                    totalAction-=2;
         		}if (action ==4){
-        			Instantiate(up, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
-        			Instantiate(left, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
+        			int a=rnd.Next(0,101);
+                    if (a < pourcent){
+                        a=rnd.Next(0,101);
+                        if(a< 100*NbGauche/NbTotal){
+                            Instantiate(left, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
+                            Instantiate(up, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
+                        }else{
+                            Instantiate(up, new Vector3(leftx, 100, 0), Quaternion.identity,parents.transform);
+                            Instantiate(right, new Vector3(rightx, 100, 0), Quaternion.identity,parents.transform);
+                        }
+                        NbGauche-=1;
+                        NbDroite-=1;
+                        NbTotal-=2;           
+                    }
+                    totalAction-=2;
         		}
             //}
     	}
@@ -247,6 +311,25 @@ public class generateaction : MonoBehaviour
     private void loselife(){
         if (life >=0){
             lifes[life].SetActive(false);
+        }
+    }
+    private void calculnbaction(){
+        foreach(Instruction ins in listIns){
+            int action=ins.getAction();
+            if (action ==0){
+                totalAction+=1;
+            }
+            if (action ==1){
+                totalAction+=1;
+            }
+            if (action ==2){
+                totalAction+=2;
+            }
+            if (action ==3){
+                totalAction+=2;
+            }if (action ==4){
+                totalAction+=2;
+            }
         }
     }
 

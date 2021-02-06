@@ -7,6 +7,8 @@ public class Joyconreader : MonoBehaviour
 	private List<Joycon>    m_joycons;
 	private Joycon          m_joyconL;
     private Joycon          m_joyconR;
+    private ArrayList       accllistleft;
+    private ArrayList       accllistright;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +26,8 @@ public class Joyconreader : MonoBehaviour
     {
         var accel = m_joyconL.GetAccel();
         var accel1 = m_joyconR.GetAccel();
-        Debug.Log("L"+accel.x);
-        Debug.Log("R"+accel1.x);
+        
+        //Debug.Log("R"+accel1.x);
     
     }
 }

@@ -25,7 +25,6 @@ public class prefabMove : MonoBehaviour
     }
     
     void FixedUpdate(){
-        Debug.Log(movespeed* Time.deltaTime);
     	if (transform.position.y <= 900){
     		transform.Translate(0,movespeed* Time.deltaTime,0);
     	}else{

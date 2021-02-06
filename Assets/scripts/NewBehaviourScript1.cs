@@ -29,14 +29,14 @@ public class NewBehaviourScript1 : MonoBehaviour
             StreamWriter swOverwrite = new StreamWriter(fsOverwrite);
             swOverwrite.WriteLine(str);
             swOverwrite.Close();
-            Debug.Log("file");
+            //Debug.Log("file");
         }
         if(state){
             Instantiate(up, new Vector3(x, 100, 0), Quaternion.identity,parents.transform);
             GameObject d=Instantiate(up, new Vector3(x-455-381, 600, 0), Quaternion.identity,parents.transform);
-            Debug.Log(d.transform.position.x);
-            Debug.Log(carre.transform.position.x);
-            Debug.Log(t.text);
+            //Debug.Log(d.transform.position.x);
+            //Debug.Log(carre.transform.position.x);
+            //Debug.Log(t.text);
             state= false;
         }
         
