@@ -195,7 +195,8 @@ public class generateaction : MonoBehaviour
                     {
                         perfectleft.SetActive(true);
                         Destroy(go);
-                        score+=200;
+                        score+=100;
+                        m_joyconL.SetRumble (160, 320, 0.6f, 200);
                     }
                     else if(diff < goodrange &&diff >= perfectrange){
                         goodleftslow.SetActive(true);
@@ -221,7 +222,8 @@ public class generateaction : MonoBehaviour
                     {
                         perfectright.SetActive(true);
                         Destroy(go);
-                        score+=200;
+                        score+=100;
+                        m_joyconR.SetRumble (160, 320, 0.6f, 200);
                     }else if(diff < goodrange &&diff >= perfectrange){
                         goodrightslow.SetActive(true);
                         Destroy(go);
@@ -250,7 +252,8 @@ public class generateaction : MonoBehaviour
                 if (diff < perfectrange&&diff> -perfectrange){
                         perfectright.SetActive(true);
                         Destroy(go);
-                        score+=200;
+                        score+=100;
+                        m_joyconR.SetRumble (160, 320, 0.6f, 200);
                 }else if(diff < goodrange &&diff >= perfectrange){
                     goodrightslow.SetActive(true);
                     Destroy(go);
@@ -278,7 +281,8 @@ public class generateaction : MonoBehaviour
                 if (diff < perfectrange&&diff> -perfectrange){
                         perfectleft.SetActive(true);
                         Destroy(go);
-                        score+=200;
+                        score+=100;
+                        m_joyconL.SetRumble (160, 320, 0.6f, 200);
                 }else if(diff < goodrange &&diff >= perfectrange){
                     goodleftslow.SetActive(true);
                     Destroy(go);
