@@ -377,10 +377,10 @@ public class Controller
             // Ensure that the target does not exist.
             try
             {
-                if (File.Exists(des_path)) 
-                {
-                    File.Delete(des_path);
-                }
+                //if (File.Exists(des_path)) 
+                // {
+                //     File.Delete(des_path);
+                // }
                 File.Move(ori_path, des_path);
             }
             catch (Exception e)
