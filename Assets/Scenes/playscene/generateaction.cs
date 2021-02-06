@@ -45,12 +45,21 @@ public class generateaction : MonoBehaviour
     private ArrayList actionframe;
     private float movespeed;
     private int preframe;
+    private List<Joycon>    m_joycons;
+    private Joycon          m_joyconL;
+    private Joycon          m_joyconR;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        m_joycons = JoyconManager.Instance.j;
+
+        if ( m_joycons == null || m_joycons.Count <= 0 ) return;
+
+        m_joyconL = m_joycons.Find( c =>  c.isLeft );
+        m_joyconR = m_joycons.Find( c => !c.isLeft );
         actionframe=new ArrayList();
         GameObject controller =  GameObject.Find("Controller(Clone)");
         cs = controller.GetComponent<ControllerSystem>();
@@ -65,6 +74,8 @@ public class generateaction : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate(){
+        Vector3 accel = m_joyconL.GetAccel();
+        Vector3 accer = m_joyconR.GetAccel();
         float rightx= rightbarre.transform.position.x;
         //right
         float leftx=leftbarre.transform.position.x;
@@ -176,10 +187,10 @@ public class generateaction : MonoBehaviour
         GameObject[] gos=  GameObject.FindGameObjectsWithTag("up");
         foreach (GameObject go in gos)
         {
-            float diff = go.transform.position.y-carreright.transform.position.y;
+            float diff = go.transform.position.y-carreright.transform.position.y-20;
             
             if(go.transform.position.x ==leftx){
-                if(Input.GetKeyDown(KeyCode.UpArrow)){
+                if(Input.GetKeyDown(KeyCode.UpArrow)||accel.x>2.5){
                     if (diff < perfectrange&&diff> -perfectrange) 
                     {
                         perfectleft.SetActive(true);
@@ -205,7 +216,7 @@ public class generateaction : MonoBehaviour
                 }
             }
             if(go.transform.position.x ==rightx){
-                if(Input.GetKeyDown(KeyCode.DownArrow)){
+                if(Input.GetKeyDown(KeyCode.DownArrow)||accer.x>2.5){
                     if (diff < perfectrange&&diff> -perfectrange) 
                     {
                         perfectright.SetActive(true);
@@ -235,7 +246,7 @@ public class generateaction : MonoBehaviour
         foreach (GameObject go in gosright)
         {
             float diff = go.transform.position.y-carreright.transform.position.y-20;
-            if(Input.GetKeyDown(KeyCode.RightArrow)){
+            if(Input.GetKeyDown(KeyCode.RightArrow)||accer.y>2){
                 if (diff < perfectrange&&diff> -perfectrange){
                         perfectright.SetActive(true);
                         Destroy(go);
@@ -262,8 +273,8 @@ public class generateaction : MonoBehaviour
         GameObject[] gosleft=  GameObject.FindGameObjectsWithTag("left");
         foreach (GameObject go in gosleft)
         {
-            float diff = go.transform.position.y - carreleft.transform.position.y;
-            if(Input.GetKeyDown(KeyCode.LeftArrow)){
+            float diff = go.transform.position.y - carreleft.transform.position.y-20;
+            if(Input.GetKeyDown(KeyCode.LeftArrow)||accel.y<-2){
                 if (diff < perfectrange&&diff> -perfectrange){
                         perfectleft.SetActive(true);
                         Destroy(go);
