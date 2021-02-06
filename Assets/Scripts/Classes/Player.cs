@@ -8,13 +8,13 @@ using System.Linq;
 public class Player 
 {
 	public string name;
-	public float vdi;
+	public float vdi=50;
 	public int limit;
 	public float coef;
 	public Score score;
 	public Feature feature;
 	public float capD;
-	public float capG;
+	public float capG=50;
     public float alpha;
 
     public Player(int age ,int sex,string _name)
