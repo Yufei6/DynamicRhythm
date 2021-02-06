@@ -24,7 +24,7 @@ public class Joyconreader : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         var accel = m_joyconL.GetAccel();
         var accel1 = m_joyconR.GetAccel();

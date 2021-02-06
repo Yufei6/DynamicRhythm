@@ -78,6 +78,9 @@ public class generateaction : MonoBehaviour
             i+=1;
             if(i>=listIns.Count){
                 i=0;
+                ArrayList acclL=gameObject.GetComponent<Joyconreader>().accllistleft;
+                ArrayList acclR=gameObject.GetComponent<Joyconreader>().accllistright;
+                gameObject.GetComponent<writeFichier>().write(actionframe,acclL,acclR);
                 cs.Back2Menu();
             }
     		//only for test
