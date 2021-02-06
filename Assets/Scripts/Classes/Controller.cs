@@ -33,6 +33,7 @@ public class Controller
         }
         else{
             managerTrace.AddTrace(t);
+            Debug.Log("HELLOOOOO:;"+t.GetAllInformation());
             player.modeliser(managerTrace.GetListTrace());
         }
     }
