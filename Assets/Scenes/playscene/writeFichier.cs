@@ -25,7 +25,6 @@ public class writeFichier : MonoBehaviour
         write("a","b","c");
     }
     void write(ArrayList actionframe,ArrayList acclL,ArrayList acclR,)
-
     {
     	hour = System.DateTime.Now.Hour;
         minute = System.DateTime.Now.Minute;
