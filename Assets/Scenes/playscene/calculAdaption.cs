@@ -17,9 +17,13 @@ public class calculAdaption : MonoBehaviour
         cs = controller.GetComponent<ControllerSystem>();
         player = cs.GetPlayer();
         ArrayList listIns = cs.GetSong().GetListIns();
-        player.vdi=50;
+        if(player.vdi==0){
+            player.vdi=50;
+        }
         NbTotal=(int)(player.vdi * listIns.Count/100f);
-        player.capG=50;
+        if(player.capG==0){
+            player.capG=50;
+        }
         Debug.Log(NbTotal);
         NbGauche= player.capG * NbTotal/100;
         NbDroite= NbTotal - NbGauche;
