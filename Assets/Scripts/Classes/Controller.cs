@@ -8,8 +8,8 @@ using System.IO;
 public class Controller
 {
     private string pathTrace = "Assets/Resources/Trace/trace.txt";
-    private string pathSong = "Assets/Music/bibio.txt";
-    private string pathPlayer = "Assets/Player/player.txt";
+    private string pathSong = "Assets/Resources/Music/bibio.txt";
+    private string pathPlayer = "Assets/Resources/Player/player.txt";
     
     public Player player;
     public ManagerTrace managerTrace;
