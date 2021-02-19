@@ -25,7 +25,7 @@ public class calculAdaption : MonoBehaviour
             player.capG=50;
         }
         Debug.Log(NbTotal);
-        NbGauche= player.capG * NbTotal/100;
+        NbGauche= player.capG *NbTotal/100;
         NbDroite= NbTotal - NbGauche;
         ArrayList result=new ArrayList();
         if (player.capG > 65){

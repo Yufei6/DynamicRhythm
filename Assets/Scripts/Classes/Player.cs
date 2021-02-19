@@ -10,17 +10,19 @@ public class Player
 	public string name;
 	public float vdi=70;
 	public int limit;
-	public float coef;
+	public float coef=1;
 	public Score score;
 	public Feature feature;
 	public float capD;
 	public float capG=50;
-    public float alpha;
+    public float alpha=1;
 
     public Player(int age ,int sex,string _name)
     {
         name = _name;
-        feature = new Feature(age,sex);
+
+        feature = new Feature(sex,age);
+        
         limit = calcul_limit(feature);
         score = new Score();
     }
@@ -108,17 +110,26 @@ public class Player
         foreach(Trace t in traces){
             sumgauche += t.scoreGauche;
             sum +=  t.scoreActuelle;
+            Debug.Log(t.scoreActuelle);
         }
+
         if (sum!=0){
             capG = sumgauche / sum;
             capD = 100- capG;
-            vdi = vdi*(1-alpha)+ vdi*coef*coef1*alpha;
-            alpha = alpha*0.8f;
+            
         }
+        Debug.Log(sum);
+        Debug.Log(capG);
+        vdi = vdi*(1-alpha)+ vdi*coef*coef1*alpha;
+        alpha = alpha*0.8f;
+        
+        Debug.Log(vdi);
     }
 
     public int calcul_limit(Feature feature){
         int age =feature.getAge();
+        Debug.Log(age);
+        
         if( age >= 70){
             limit=80;
         }
