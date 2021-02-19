@@ -114,7 +114,7 @@ public class Player
         }
 
         if (sum!=0){
-            capG = sumgauche / sum;
+            capG = sumgauche *100/ sum;
             capD = 100- capG;
             
         }
