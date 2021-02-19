@@ -18,7 +18,7 @@ public class calculAdaption : MonoBehaviour
         player = cs.GetPlayer();
         ArrayList listIns = cs.GetSong().GetListIns();
         if(player.vdi==0){
-            player.vdi=50;
+            player.vdi=70;
         }
         NbTotal=(int)(player.vdi * listIns.Count/100f);
         if(player.capG==0){

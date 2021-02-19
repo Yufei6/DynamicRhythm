@@ -8,7 +8,7 @@ using System.Linq;
 public class Player 
 {
 	public string name;
-	public float vdi=50;
+	public float vdi=70;
 	public int limit;
 	public float coef;
 	public Score score;
@@ -102,6 +102,7 @@ public class Player
         Trace trace=(Trace)traces[traces.Count - 1];
         score.updatescore(trace);
     	coef = calcul_coef(score);
+        float coef1 = calcul_coef2(trace);
         int sumgauche=0;
         int sum=0;
         foreach(Trace t in traces){
@@ -111,7 +112,7 @@ public class Player
         if (sum!=0){
             capG = sumgauche / sum;
             capD = 100- capG;
-            vdi = vdi*(1-alpha)+ vdi*coef*alpha;
+            vdi = vdi*(1-alpha)+ vdi*coef*coef1*alpha;
             alpha = alpha*0.8f;
         }
     }
@@ -142,6 +143,21 @@ public class Player
             coef=1f+inc/100;
         }
     	return coef;
+    }
+
+    public float calcul_coef2(Trace t){
+        float coef1 = 0.1f;
+        float coef2 = t.scoreActuelle*100 / t.scoreTotal;
+        if (coef2 > 80){
+            coef1=1.20f;
+        }
+        else if (60 > coef2){
+            coef1 =0.8f;
+        }
+        else{
+            coef1=1f;
+        }
+        return coef1;
     }
 
     public string GuessLorR(){
