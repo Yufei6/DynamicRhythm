@@ -145,7 +145,7 @@ public class Player
     public float calcul_coef(Score score){
         float inc = score.increase;
         if (inc <= 0){
-            coef=0f;
+            coef=1f;
         }
         else if (inc>20){
             coef =1.2f;
