@@ -121,6 +121,9 @@ public class Player
         Debug.Log(sum);
         Debug.Log(capG);
         vdi = vdi*(1-alpha)+ vdi*coef*coef1*alpha;
+        if(vdi>=limit){
+            vdi=limit;
+        }
         alpha = alpha*0.8f;
         
         Debug.Log(vdi);
@@ -148,10 +151,10 @@ public class Player
             coef=1f;
         }
         else if (inc>20){
-            coef =1.2f;
+            coef =1.05f;
         }
         else{
-            coef=1f+inc/100;
+            coef=1f+inc/400;
         }
     	return coef;
     }
@@ -159,10 +162,10 @@ public class Player
     public float calcul_coef2(Trace t){
         float coef1 = 0.1f;
         float coef2 = t.scoreActuelle*100 / t.scoreTotal;
-        if (coef2 > 80){
-            coef1=1.20f;
+        if (coef2 > 95){
+            coef1=1.05f;
         }
-        else if (60 > coef2){
+        else if (80 > coef2){
             coef1 =0.8f;
         }
         else{
