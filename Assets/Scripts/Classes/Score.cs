@@ -23,7 +23,14 @@ public class Score
         }else{
             increase=1;
         }
-    	lastscore=score;
+
+        //avoid to have a 0 as lastScore
+        if (score > 0){
+            lastscore=score;
+        }
+    	else{
+            lastscore=-1;
+        }
     	all_score=all_score.Append(score).ToArray();
     }
 }
