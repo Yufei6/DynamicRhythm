@@ -110,7 +110,7 @@ public class Player
         foreach(Trace t in traces){
             sumgauche += t.scoreGauche;
             sum +=  t.scoreActuelle;
-            Debug.Log(t.scoreActuelle);
+            
         }
 
         if (sum!=0){
@@ -126,7 +126,7 @@ public class Player
         }
         alpha = alpha*0.8f;
         
-        Debug.Log(vdi);
+        
     }
 
     public int calcul_limit(Feature feature){
